@@ -16,7 +16,7 @@ import com.example.tiendaonlineapp.data.CategoryItem;
 public class CategoryListActivity
         extends AppCompatActivity implements CategoryListContract.View {
 
-    //public static String TAG = CategoryListActivity.class.getSimpleName();
+
     public static String TAG = "TiendaOnlineApp.CategoryListActivity";
 
     private CategoryListContract.Presenter presenter;
