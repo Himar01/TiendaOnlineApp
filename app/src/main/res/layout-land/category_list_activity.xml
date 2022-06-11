@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
     tools:context=".categories.CategoryListActivity"
     android:background="#FFFFFF">
@@ -28,7 +28,7 @@
 
 
     <LinearLayout
-        android:layout_width="417dp"
+        android:layout_width="match_parent"
         android:layout_height="680dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,7 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="300dp"
+                android:layout_width="536dp"
                 android:layout_height="34dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
@@ -64,7 +64,7 @@
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
                 android:scaleType="fitCenter"
-                app:tint="#575757"
+                android:tint="#575757"
                 app:srcCompat="@drawable/_logout" />
 
             <ImageButton
@@ -92,23 +92,23 @@
                 android:text="Iniciar | Registrarse"
                 android:textColor="#FF2626"
                 android:textSize="20sp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:background="@drawable/border">
+            android:layout_height="wrap_content">
+
             <include
                 layout="@layout/category_list"
                 android:layout_width="match_parent"

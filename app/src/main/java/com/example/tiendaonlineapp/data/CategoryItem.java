@@ -14,7 +14,7 @@ public class CategoryItem {
     public int id;
 
     public String content;
-
+    public String svg;
     @Ignore
     @SerializedName("products")
     public List<ProductItem> items;

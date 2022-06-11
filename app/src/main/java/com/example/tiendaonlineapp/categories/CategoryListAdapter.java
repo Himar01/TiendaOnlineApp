@@ -1,8 +1,12 @@
 package com.example.tiendaonlineapp.categories;
 
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,10 +21,12 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
     private List<CategoryItem> itemList;
     private final View.OnClickListener clickListener;
+    //in the Constructor, pass the context in the parametres
+    int[] svgResources;
 
 
-    public CategoryListAdapter(View.OnClickListener listener) {
-
+    public CategoryListAdapter(View.OnClickListener listener, int[] svgResources) {
+        this.svgResources = svgResources;
         itemList = new ArrayList();
         clickListener = listener;
     }
@@ -57,17 +63,19 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.itemView.setTag(itemList.get(position));
         holder.itemView.setOnClickListener(clickListener);
-
         holder.contentView.setText(itemList.get(position).content);
-
+        //Images resources will be stored in the Activity
+        holder.imageView.setImageResource(svgResources[position]);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         final TextView contentView;
+        final ImageView imageView;
 
         ViewHolder(View view) {
             super(view);
             contentView = view.findViewById(R.id.content);
+            imageView = view.findViewById(R.id.imageView);
         }
     }
 

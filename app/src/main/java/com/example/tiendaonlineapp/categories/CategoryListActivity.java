@@ -39,7 +39,9 @@ public class CategoryListActivity
                 CategoryItem item = (CategoryItem) view.getTag();
                 presenter.selectCategoryListData(item);
             }
-        });
+        },new int[]{R.drawable._1microchip,R.drawable._2computer,R.drawable._3mobile,
+        R.drawable._4keyboard,R.drawable._5house,R.drawable._6tv,R.drawable._7router,
+        R.drawable._8cable,R.drawable._9gaming, R.drawable._10_camera} );
         RecyclerView recyclerView = findViewById(R.id.category_list);
         recyclerView.setAdapter(listAdapter);
         // Log.e(TAG, "onCreate()");

@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/drawable/_1microchip.xml" value="0.159" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/drawable/_9gaming.xml" value="0.159" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/drawable/microchip_solid.xml" value="0.159" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/layout-land/category_list.xml" value="0.11770833333333333" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/layout-land/category_list_activity.xml" value="0.1" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/layout-land/category_list_content.xml" value="0.2" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/layout/category_list.xml" value="0.176" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/layout/category_list_activity.xml" value="0.1" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/DdA/TiendaOnlineApp/app/src/main/res/layout/category_list_content.xml" value="0.264" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/activity_main.xml" value="0.296875" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/category_list.xml" value="0.2" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/category_list_activity.xml" value="0.22" />

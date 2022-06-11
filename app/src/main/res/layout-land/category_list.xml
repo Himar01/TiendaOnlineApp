@@ -9,4 +9,5 @@
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
     tools:context=".categories.CategoryListActivity"
-    tools:listitem="@layout/category_list_content" />
+    tools:listitem="@layout/category_list_content"
+    android:paddingBottom="350dp"/>
