@@ -21,7 +21,7 @@ public class ProductItem {
     @PrimaryKey
     public int id;
 
-    public String content;
+    public String product;
     public String details;
     public String picture;
     public float price;
@@ -32,6 +32,6 @@ public class ProductItem {
 
     @Override
     public String toString() {
-        return content;
+        return product;
     }
 }

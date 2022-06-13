@@ -1,12 +1,14 @@
 package com.example.tiendaonlineapp.app;
 
 import com.example.tiendaonlineapp.categories.CategoryListState;
+import com.example.tiendaonlineapp.products.ProductListState;
 
 public class AppMediator {
 
     private static AppMediator INSTANCE;
 
     private CategoryListState categoryListState = new CategoryListState();
+    private ProductListState productListState = new ProductListState();
 
 
     private AppMediator() {
@@ -36,5 +38,6 @@ public class AppMediator {
     }
 
 
-
+    public ProductListState getProductListState() {return productListState;
+    }
 }

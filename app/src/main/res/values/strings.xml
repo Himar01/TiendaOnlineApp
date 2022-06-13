@@ -6,4 +6,7 @@
     <string name="title_product_detail">Product Detail</string>
     <string name="item_content">Item Content</string>
     <string name="item_details">Item Details</string>
+    <string name="iniciar_registrarse">Iniciar | Registrarse</string>
+    <string name="likebutton">Like Button</string>
+    <string name="logout">Logout</string>
 </resources>

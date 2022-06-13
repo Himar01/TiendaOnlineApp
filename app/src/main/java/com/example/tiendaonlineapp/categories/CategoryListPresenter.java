@@ -59,7 +59,14 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
     @Override
     public void selectCategoryListData(CategoryItem item) {
+        model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
 
+            @Override
+            public void setCategoryList(List<CategoryItem> categories) {
+                state.categories = categories;
+                view.get().displayCategoryListData(state);
+            }
+        });
     }
 
 

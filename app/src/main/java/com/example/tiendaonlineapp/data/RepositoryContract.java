@@ -10,7 +10,7 @@ public interface RepositoryContract {
     }
 
     interface GetProductListCallback {
-//        void setProductList(List<ProductItem> products);
+        void setProductList(List<ProductItem> products);
     }
 
     interface GetProductCallback {

@@ -16,6 +16,12 @@
             android:name="com.example.tiendaonlineapp.categories.CategoryListActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
+        </activity>
+
+        <activity
+            android:name="com.example.tiendaonlineapp.products.ProductListActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

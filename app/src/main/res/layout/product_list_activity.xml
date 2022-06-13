@@ -76,7 +76,6 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_heart_svgrepo_com"
             app:tint="#ad0000"
-            tools:ignore="SpeakableTextPresentCheck"
             android:visibility="gone"/>
 
         <TextView
@@ -119,7 +118,7 @@
 
 
         <include
-            layout="@layout/category_list"
+            layout="@layout/product_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

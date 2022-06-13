@@ -76,12 +76,12 @@ public class OnlineShopRepository implements RepositoryContract{
                     getCategoryDao().insertCategory(category);
                 }
 
-/*                for (CategoryItem category: categories) {
+                for (CategoryItem category: categories) {
                     for (ProductItem product: category.items) {
                         product.categoryId = category.id;
                         getProductDao().insertProduct(product);
                     }
-                }*/
+                }
 
                 return true;
             }
@@ -144,7 +144,15 @@ public class OnlineShopRepository implements RepositoryContract{
 
     @Override
     public void getProductList(int categoryId, GetProductListCallback callback) {
+        AsyncTask.execute(new Runnable() {
 
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setProductList(getProductDao().loadProducts(categoryId));
+                }
+            }
+        });
     }
 
     @Override
