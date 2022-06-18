@@ -30,7 +30,13 @@
       "id": 1,
       "content": "Ordenadores",
       "products": [
-
+        {
+          "id": 11,
+          "product":"Asus E410MA-EB008TS Intel Celeron",
+          "details": "",
+          "price": 269,
+          "picture": "R.drawable.ordenador_asus_e410ma-eb008ts_intel_celeron"
+        }
       ]
     },
     {

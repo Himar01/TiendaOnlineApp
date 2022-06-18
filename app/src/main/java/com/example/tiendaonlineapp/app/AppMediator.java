@@ -33,8 +33,8 @@ public class AppMediator {
         return categoryListState;
     }
 
-    public void setScreenState(CategoryListState state) {
-        categoryListState = state;
+    public void setProductListState(ProductListState state) {
+        productListState = state;
     }
 
 

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.data.CategoryItem;
+import com.example.tiendaonlineapp.products.ProductListActivity;
 
 public class CategoryListActivity
         extends AppCompatActivity implements CategoryListContract.View {
@@ -35,7 +36,7 @@ public class CategoryListActivity
         //Adding symbols to each category.
         int[] svgResources = new int[]{R.drawable._1microchip,R.drawable._2computer,R.drawable._3mobile,
                 R.drawable._4keyboard,R.drawable._5house,R.drawable._6tv,R.drawable._7router,
-                R.drawable._8cable,R.drawable._9gaming, R.drawable._10_camera};
+                R.drawable._8cable,R.drawable._9gaming, R.drawable._10camera};
 
         listAdapter = new CategoryListAdapter(new View.OnClickListener() {
 
@@ -75,7 +76,7 @@ public class CategoryListActivity
     public void navigateToProductListScreen() {
         // Log.e(TAG, "navigateToNextScreen()");
 
-        Intent intent = new Intent(this, CategoryListActivity.class);
+        Intent intent = new Intent(this, ProductListActivity.class);
         startActivity(intent);
     }
 

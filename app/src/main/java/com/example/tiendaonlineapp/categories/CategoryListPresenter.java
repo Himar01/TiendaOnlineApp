@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.tiendaonlineapp.app.AppMediator;
 import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.products.ProductListState;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -59,14 +60,10 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
     @Override
     public void selectCategoryListData(CategoryItem item) {
-        model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
-
-            @Override
-            public void setCategoryList(List<CategoryItem> categories) {
-                state.categories = categories;
-                view.get().displayCategoryListData(state);
-            }
-        });
+        ProductListState pdState = new ProductListState();
+        pdState.categoryId = item.id;
+        mediator.setProductListState(pdState);
+        view.get().navigateToProductListScreen();
     }
 
 

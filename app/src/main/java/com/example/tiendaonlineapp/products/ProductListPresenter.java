@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.app.AppMediator;
-import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
 
@@ -38,7 +37,7 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         // Log.e(TAG, "fetchCategoryListData()");
 
         // call the model
-        model.fetchProductListData(state.category.id,new RepositoryContract.GetProductListCallback() {
+        model.fetchProductListData(state.categoryId,new RepositoryContract.GetProductListCallback() {
             @Override
             public void setProductList(List<ProductItem> products) {
                 state.products = products;
@@ -54,13 +53,14 @@ public class ProductListPresenter implements ProductListContract.Presenter {
     @Override
     public int[] loadImgResources(){
         int[] imgResources = new int[]{};
-        switch(state.category.id){
+        switch(state.categoryId){
             case 0:
                 imgResources = new int[]{R.drawable.componente_tempest_liquid_cooler,
                         R.drawable.componente_amd_ryzen_5_5600,
                         R.drawable.componente_corsair_vengeance_ddr4_3200_16gb_2x8gb};
                 break;
             case 1:
+                imgResources = new int[]{R.drawable.ordenador_asus_e410ma_eb008ts_intel_celeron};
                 break;
             case 2:
                 break;
@@ -84,8 +84,6 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
     @Override
     public void onCreate() {
-        state.category = new CategoryItem();
-        state.category.id = 0;
     }
 
     @Override
