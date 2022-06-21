@@ -8,5 +8,5 @@ public class ProductListViewModel {
 
     // put the view state here
 
-    public List<ProductItem> products;
+    public List<ProductItem> currentProducts;
 }

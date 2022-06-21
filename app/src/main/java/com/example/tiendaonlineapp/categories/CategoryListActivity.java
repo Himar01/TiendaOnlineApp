@@ -57,7 +57,7 @@ public class CategoryListActivity
     }
 
     @Override
-    public void displayCategoryListData(CategoryListViewModel viewModel) {
+    public void displayData(CategoryListViewModel viewModel) {
         Log.e(TAG, "displayCategoryListData()");
 
         runOnUiThread(new Runnable() {

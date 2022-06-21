@@ -10,7 +10,7 @@ public interface CategoryListContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void displayCategoryListData(CategoryListViewModel viewModel);
+        void displayData(CategoryListViewModel viewModel);
 
         void navigateToProductListScreen();
     }

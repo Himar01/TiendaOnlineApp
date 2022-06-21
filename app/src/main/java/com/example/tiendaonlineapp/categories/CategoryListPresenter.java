@@ -53,7 +53,7 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
             @Override
             public void setCategoryList(List<CategoryItem> categories) {
                 state.categories = categories;
-                view.get().displayCategoryListData(state);
+                view.get().displayData(state);
             }
         });
     }

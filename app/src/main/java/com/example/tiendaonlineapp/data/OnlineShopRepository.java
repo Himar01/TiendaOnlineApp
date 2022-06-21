@@ -157,7 +157,15 @@ public class OnlineShopRepository implements RepositoryContract{
 
     @Override
     public void getProduct(int id, GetProductCallback callback) {
+        AsyncTask.execute(new Runnable() {
 
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setProduct(getProductDao().loadProduct(id));
+                }
+            }
+        });
     }
 
     @Override

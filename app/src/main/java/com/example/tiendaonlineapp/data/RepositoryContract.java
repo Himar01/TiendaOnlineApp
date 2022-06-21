@@ -14,6 +14,7 @@ public interface RepositoryContract {
     }
 
     interface GetProductCallback {
+        void setProduct(ProductItem product);
 //        void setProduct(ProductItem product);
     }
 

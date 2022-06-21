@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.data.ProductItem;
+import com.example.tiendaonlineapp.product.ProductDetailActivity;
 
 public class ProductListActivity
         extends AppCompatActivity implements ProductListContract.View {
@@ -76,7 +77,7 @@ public class ProductListActivity
             public void run() {
 
                 // deal with the data
-                listAdapter.setItems(viewModel.products);
+                listAdapter.setItems(viewModel.currentProducts);
             }
 
         });
@@ -84,19 +85,13 @@ public class ProductListActivity
 
 
     @Override
-    public void navigateToNextScreen() {
+    public void navigateToProductDetailScreen() {
         // Log.e(TAG, "navigateToNextScreen()");
 
-        Intent intent = new Intent(this, ProductListActivity.class);
+        Intent intent = new Intent(this, ProductDetailActivity.class);
         startActivity(intent);
     }
 
-    @Override
-    public void navigateToPreviousScreen() {
-        // Log.e(TAG, "navigateToPreviousScreen()");
-
-        finish();
-    }
 
     @Override
     public void injectPresenter(ProductListContract.Presenter presenter) {

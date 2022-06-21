@@ -6,6 +6,7 @@ import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.app.AppMediator;
 import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.product.ProductDetailState;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -40,7 +41,7 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         model.fetchProductListData(state.categoryId,new RepositoryContract.GetProductListCallback() {
             @Override
             public void setProductList(List<ProductItem> products) {
-                state.products = products;
+                state.currentProducts = products;
                 view.get().displayData(state);
             }
         });
@@ -48,7 +49,10 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
     @Override
     public void selectCategoryListData(ProductItem item) {
-
+        ProductDetailState productState = new ProductDetailState();
+        productState.productId = item.id;
+        mediator.setProductDetailState(productState);
+        view.get().navigateToProductDetailScreen();
     }
     @Override
     public int[] loadImgResources(){

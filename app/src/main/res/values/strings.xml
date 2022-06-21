@@ -10,4 +10,13 @@
     <string name="likebutton">Like Button</string>
     <string name="logout">Logout</string>
     <string name="ProductSeeing">Product Seeing</string>
+    <string name="detailsSample">Características
+Latencia CAS: 16
+Memoria interna: 16 GB
+Tipo de memoria interna: DDR4
+Velocidad de memoria del reloj: 3200 MHz
+Componente para: PC/servidor
+Forma de factor de memoria: 288-pin DIMM
+Diseño de memoria (módulos x tamaño): 2 x 8 GB
+Tipo de enfriamiento: Disipador térmico</string>
 </resources>

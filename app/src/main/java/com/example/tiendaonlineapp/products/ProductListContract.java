@@ -12,9 +12,7 @@ public interface ProductListContract {
 
         void displayData(ProductListViewModel viewModel);
 
-        void navigateToNextScreen();
-
-        void navigateToPreviousScreen();
+        void navigateToProductDetailScreen();
 
     }
 
@@ -38,8 +36,6 @@ public interface ProductListContract {
     interface Model {
         void fetchProductListData(int categoryId,
                 RepositoryContract.GetProductListCallback callback);
-
-
     }
 
 }
