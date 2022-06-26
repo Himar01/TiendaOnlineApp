@@ -7,7 +7,7 @@
         {
           "id": 0,
           "product": "Tempest Liquid Cooler 360 RGB Kit de Refrigeración Líquida Negro",
-          "details": "•\tSoporte: Intel Socket LGA 775/1155/1156/1366/2011 (CPU Core i3 / i5 / i7)\n•\tCPU: AMD AM4 / FM2 / FM1 / AM3 + / AM3 / AM2 + / AM2\nPotencia de entrada: 3,84 W\n•\tVentilador: N.I.T PWM x 3 Ventiladores\n•\tTamaño ventiladores: 120x120x25 mm x3\n•\tTamaño radiador: 395x120x27mm\n•\tLongitud tubo: 385mm\n•\tDiámetro tubo: 12.7mm\n•\tTamaño bomba: 78.5x84x45.5mm\n•\tVelocidad de los ventiladores: 800-2000 RPM (máx.)\n•\tRuido: 30 dBA (máx.)\n•\tFlujo de aire: 50,7 CFM (máx.)\n•\tPresión de aire: 1,5 mmH2O (máx.)\n•\tVoltaje: 12V\n•\tRodamiento hidráulico: Sí\n•\tInterfaz: 3 ventiladores PWM 4Pin + PUMP 3pin",
+          "details": "•\tSoporte: Intel Socket LGA 775/1155/1156/1366/2011 (CPU Core i3 / i5 / i7)\n•\tCPU: AMD AM4 / FM2 / FM1 / AM3 + / AM3 / AM2 + / AM2\n•\tPotencia de entrada: 3,84 W\n•\tVentilador: N.I.T PWM x 3 Ventiladores\n•\tTamaño ventiladores: 120x120x25 mm x3\n•\tTamaño radiador: 395x120x27mm\n•\tLongitud tubo: 385mm\n•\tDiámetro tubo: 12.7mm\n•\tTamaño bomba: 78.5x84x45.5mm\n•\tVelocidad de los ventiladores: 800-2000 RPM (máx.)\n•\tRuido: 30 dBA (máx.)\n•\tFlujo de aire: 50,7 CFM (máx.)\n•\tPresión de aire: 1,5 mmH2O (máx.)\n•\tVoltaje: 12V\n•\tRodamiento hidráulico: Sí\n•\tInterfaz: 3 ventiladores PWM 4Pin + PUMP 3pin",
           "price": 89.99,
           "picture": "R.drawable.componente-tempest-liquid-cooler"
         },{

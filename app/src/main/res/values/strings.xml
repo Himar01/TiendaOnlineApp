@@ -19,4 +19,6 @@ Componente para: PC/servidor
 Forma de factor de memoria: 288-pin DIMM
 Diseño de memoria (módulos x tamaño): 2 x 8 GB
 Tipo de enfriamiento: Disipador térmico</string>
+    <string name="Favorites">Favoritos</string>
+    <string name="caracteristicas">Características</string>
 </resources>

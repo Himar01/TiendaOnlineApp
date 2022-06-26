@@ -27,8 +27,7 @@
         android:layout_height="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar"
->
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
         <TextView
             android:id="@+id/greeting"
@@ -95,6 +94,18 @@
             tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/separator"
+        app:layout_constraintTop_toBottomOf="@+id/userBar"
+        app:layout_constraintBottom_toTopOf="@id/scrollDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_height="1dp"
+        android:alpha="0.6"
+        android:background="@android:color/darker_gray"/>
 
     <ScrollView
         android:id="@+id/scrollDetails"
@@ -104,11 +115,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userBar">
+        app:layout_constraintTop_toBottomOf="@id/userBar"
+>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <ImageView
                 android:id="@+id/productImage"
@@ -133,7 +146,6 @@
                 android:text="Tempest X1000 200 X 200 Exposing sample"
                 android:textAlignment="center"
                 android:textSize="26sp"
-
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -141,32 +153,103 @@
                 app:layout_constraintTop_toBottomOf="@+id/productImage" />
 
             <TextView
-                android:id="@+id/productPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="TextView"
-                android:textSize="40sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.15"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productName" />
-
-            <TextView
                 android:id="@+id/productDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
                 android:text="@string/detailsSample"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/characteristics_separator" />
+
+            <View
+                android:id="@+id/characteristics_separator"
+                android:layout_width="60dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/characteristics" />
+
+            <TextView
+                android:id="@+id/characteristics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="bottom"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="0dp"
+                android:text="@string/caracteristicas"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productPrice" />
+
+                app:layout_constraintTop_toBottomOf="@id/price_and_fav"
+
+                />
+            <LinearLayout
+                android:id="@+id/price_and_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productName"
+>
+
+                <TextView
+                    android:id="@+id/productPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:text="323,24€"
+                    android:textAlignment="center"
+                    android:textSize="40sp"
+                    android:layout_gravity="center"/>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="15dp">
+
+                    <ToggleButton
+                        android:id="@+id/likeButton"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="12dp"
+
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="#F0E7FF"
+                        android:drawableStart="@drawable/favorite_button_icon"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="sans-serif-medium"
+
+                        android:text="@string/Favorites"
+                        android:textColor="#000000"
+                        android:textOff="@string/Favorites"
+                        android:textOn="@string/Favorites"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
