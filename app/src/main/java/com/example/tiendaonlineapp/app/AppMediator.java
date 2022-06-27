@@ -24,7 +24,9 @@ public class AppMediator {
 
         return INSTANCE;
     }
-
+    public static void resetInstance() {
+        INSTANCE = null;
+    }
     public void setProductListState(ProductListState state) {
         productListState = state;
     }

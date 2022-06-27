@@ -13,13 +13,14 @@
         },{
           "id": 1,
           "product": "AMD Ryzen 5 5600 3.5GHz Box",
-          "details": "General\nPlataforma: Computadora de escritorio\nFamilia de productos: AMD Ryzen™ Processors\nLínea de productos: AMD Ryzen™ 5 Desktop Processors\n# de núcleos de CPU: 6\n# de hilos: 12\nReloj de aumento máx.: Hasta 4.4GHz\nReloj base: 3.5GHz\nCaché L1 total: 384KB\nCaché L2 total: 3MB\nCaché L3 total: 32MB\nTDP/TDP predeterminado: 65W\nProcessor Technology for CPU Cores: TSMC 7nm FinFET\nDesbloqueados: Sí *La garantía del producto AMD no cubre los daños ocasionados por overclocking, incluso si esta función se activa mediante hardware o software de AMD. GD-26.\nCPU Socket: AM4\nNúmero de sockets: 1P\nSolución térmica (PIB): AMD Wraith Stealth\nTemp. máx.: 90ºC\n*Compatible con SO\nWindows 11 - Edición de 64-bits\nWindows 10 edición de 64·bits\nRHEL x86 edición de 64·bits\nUbuntu x86 edición de 64·bits\n*El soporte del sistema operativo (SO) variará según el fabricante.\nConectividad\nVersión de PCI Express: PCIe 4.0\nTipo de memoria: DDR4\nCanales de memoria: 2\nVelocidad máxima de memoria: Hasta 3200MHz\nMax Memory Speed\n2x1R DDR4-3200\n2x2R DDR4-3200\n4x1R DDR4-2933\n4x2R DDR4-2667",
+          "details": "•\tPlataforma: Computadora de escritorio\n•\tFamilia de productos: AMD Ryzen™ Processors\n•\tLínea de productos: AMD Ryzen™ 5 Desktop Processors\n•\t# de núcleos de CPU: 6\n•\t# de hilos: 12\n•\tReloj de aumento máx.: Hasta 4.4GHz\n•\tReloj base: 3.5GHz\n•\tCaché L1 total: 384KB\n•\tCaché L2 total: 3MB\n•\tCaché L3 total: 32MB\n•\tTDP/TDP predeterminado: 65W\n•\tProcessor Technology for CPU Cores: TSMC 7nm FinFET\n•\tDesbloqueados: Sí *La garantía del producto AMD no cubre los daños ocasionados por overclocking, incluso si esta función se activa mediante hardware o software de AMD. GD-26.\n•\tCPU Socket: AM4\n•\tNúmero de sockets: 1P\n•\tSolución térmica (PIB): AMD Wraith Stealth\n•\tTemp. máx.: 90ºC",
+
           "price": 212.98,
           "picture": "R.drawable.componente-amd-ryzen-5-5600"
         },{
           "id": 2,
           "product": "Corsair Vengeance LPX DDR4 3200 PC4-25600 16GB 2X8GB CL16 Negro",
-          "details": "Características\nLatencia CAS: 16\nMemoria interna: 16 GB\nTipo de memoria interna: DDR4\nVelocidad de memoria del reloj: 3200 MHz\nComponente para: PC/servidor\nForma de factor de memoria: 288-pin DIMM\nDiseño de memoria (módulos x tamaño): 2 x 8 GB\nTipo de enfriamiento: Disipador térmico",
+          "details": "•\tCaracterísticas\n•\tLatencia CAS: 16\n•\tMemoria interna: 16 GB\n•\tTipo de memoria interna: DDR4\n•\tVelocidad de memoria del reloj: 3200 MHz\n•\tComponente para: PC/servidor\n•\tForma de factor de memoria: 288-pin DIMM\n•\tDiseño de memoria (módulos x tamaño): 2 x 8 GB\n•\tTipo de enfriamiento: Disipador térmico",
           "price": 70.99,
           "picture": "R.drawable.componente-corsair-vengeance-ddr4-3200-16gb-2x8gb"
         }
@@ -33,8 +34,8 @@
         {
           "id": 11,
           "product":"Asus E410MA-EB008TS Intel Celeron",
-          "details": "",
-          "price": 269,
+          "details": "•\tProcesador Intel® Celeron® N4020 (2 Núcleos, 2 Subprocesos, Caché: 4MB, 1.10GHz hasta 2.80GHz, 64-bit)\n•\tMemoria RAM 4GB (4GB [EN PLACA]) DDR4 2400MHz\n•\tAlmacenamiento 64GB EMMC\n•\tUnidad óptica No\n•\tDisplay 14\" (35,56cm) LED Retroiluminado / 60Hz / NanoEdge (Borde Estrecho) / 200nits / FHD (1920x1080/16:9) / Antirreflejos / NTSC:45%\n•\tControlador gráfico Intel® UHD Graphics 600\n•\tConectividad\n•\tWi-Fi 5 (802.11ac) 1x1\n•\tBluetooth® 4.1\n•\tCámara de portátil VGA (640x480)\n•\tBatería 42Wh, 3 Celdas, Ion de Litio\n•\tConexiones\n\t•\t1 x USB 2.0\n\t•\t1 x USB 3.2 Gen1\n\t•\t1 x USB-C 3.2 Gen1\n\t•\t1 x Conector de Audio Combinado Auriculares/Micrófono 3,5mm\n\t•\t1 x HDMI 1.4\n\t•\t1 x Entrada de Corriente\n•\tSistema operativo Windows® 10 Home S (64Bits)\n•\tDimensiones (Ancho x Profundidad x Altura) 325 x 217 x 18~18,4 mm\n•\tPeso 1,3 Kg (con batería de 3 celdas)\n•\tColor Azul Eléctrico",
+          "price": 269.00,
           "picture": "R.drawable.ordenador_asus_e410ma-eb008ts_intel_celeron"
         }
       ]

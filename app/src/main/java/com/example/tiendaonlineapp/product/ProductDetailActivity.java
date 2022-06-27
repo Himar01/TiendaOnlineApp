@@ -3,6 +3,8 @@ package com.example.tiendaonlineapp.product;
 import static java.lang.String.valueOf;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.LeadingMarginSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,13 +50,21 @@ public class ProductDetailActivity
         String priceTotal = valueOf(viewModel.currentProduct.price);
         String[] price = priceTotal.split("\\.");
         ((TextView) findViewById(R.id.productPrice)).setText(price[0]+","+price[1]+"€");
-        ((TextView) findViewById(R.id.productDetails)).setText(viewModel.currentProduct.details);
+        String details = viewModel.currentProduct.details;
+        SpannableString indentedDetails = createIndentedText(details,0,100);
+        ((TextView) findViewById(R.id.productDetails)).setText(indentedDetails);
         int img = presenter.fetchImage();
         if(img!=-1)
             ((ImageView) findViewById(R.id.productImage)).setImageResource(img);
 
     }
 
+    private SpannableString createIndentedText(String text, int marginFirstLine, int marginNextLines) {
+        text = text.replace("\t", "   ");
+        SpannableString result = new SpannableString(text);
+        result.setSpan(new LeadingMarginSpan.Standard(marginFirstLine, marginNextLines),0,text.length(),0);
+        return result;
+    }
 
 
 

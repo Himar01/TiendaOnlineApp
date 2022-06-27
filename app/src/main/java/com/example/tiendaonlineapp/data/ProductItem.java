@@ -2,6 +2,8 @@ package com.example.tiendaonlineapp.data;
 
 import static androidx.room.ForeignKey.CASCADE;
 
+import android.text.SpannableString;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
