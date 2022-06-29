@@ -28,8 +28,6 @@ public interface ProductListContract {
 
         void selectCategoryListData(ProductItem item);
 
-        int[] loadImgResources();
-
         void onCreate();
     }
 

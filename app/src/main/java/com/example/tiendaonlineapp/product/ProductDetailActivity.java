@@ -59,6 +59,7 @@ public class ProductDetailActivity
 
     }
 
+
     private SpannableString createIndentedText(String text, int marginFirstLine, int marginNextLines) {
         text = text.replace("\t", "   ");
         SpannableString result = new SpannableString(text);

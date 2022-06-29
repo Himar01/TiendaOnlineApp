@@ -38,7 +38,6 @@ public class ProductListActivity
             actionBar.setTitle(R.string.app_name);
         }
         presenter.onCreate();
-        int[] imgResources = presenter.loadImgResources();
 
         listAdapter = new ProductListAdapter(new View.OnClickListener() {
 
@@ -47,7 +46,7 @@ public class ProductListActivity
                 ProductItem item = (ProductItem) view.getTag();
                 presenter.selectCategoryListData(item);
             }
-        },imgResources);
+        },this);
         RecyclerView recyclerView = findViewById(R.id.product_list);
         recyclerView.setAdapter(listAdapter);
 

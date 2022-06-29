@@ -2,6 +2,7 @@ package com.example.tiendaonlineapp.products;
 
 import static java.lang.String.valueOf;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +22,10 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     private List<ProductItem> itemList;
     private final View.OnClickListener clickListener;
     //in the Constructor, pass the context in the parametres
+    private Context context;
 
-    int[] imgResources;
-
-    public ProductListAdapter(View.OnClickListener listener,int[] imgResources) {
-        this.imgResources = imgResources;
+    public ProductListAdapter(View.OnClickListener listener, Context context) {
+        this.context = context;
         itemList = new ArrayList();
         clickListener = listener;
     }
@@ -67,10 +67,20 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         String priceTotal = valueOf(itemList.get(position).price);
         String[] price = priceTotal.split("\\.");
         holder.priceView.setText(price[0]+","+price[1]+"€");
-        holder.productView.setImageResource(imgResources[position]);
+        holder.productView.setImageResource(getResourceId(itemList.get(position).picture,
+                "drawable",
+                context.getPackageName()));
         //Images resources will be stored in the Activity
     }
-
+    private int getResourceId(String pVariableName, String pResourcename, String pPackageName)
+    {
+        try {
+            return context.getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
     class ViewHolder extends RecyclerView.ViewHolder {
         final TextView contentView;
         final TextView priceView;

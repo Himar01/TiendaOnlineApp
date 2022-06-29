@@ -34,9 +34,6 @@ public class CategoryListActivity
             actionBar.setTitle(R.string.app_name);
         }
         //Adding symbols to each category.
-        int[] svgResources = new int[]{R.drawable._1microchip,R.drawable._2computer,R.drawable._3mobile,
-                R.drawable._4keyboard,R.drawable._5house,R.drawable._6tv,R.drawable._7router,
-                R.drawable._8cable,R.drawable._9gaming, R.drawable._10camera};
 
         listAdapter = new CategoryListAdapter(new View.OnClickListener() {
 
@@ -45,7 +42,7 @@ public class CategoryListActivity
                 CategoryItem item = (CategoryItem) view.getTag();
                 presenter.selectCategoryListData(item);
             }
-        },svgResources);
+        },this);
         RecyclerView recyclerView = findViewById(R.id.category_list);
         recyclerView.setAdapter(listAdapter);
         // Log.e(TAG, "onCreate()");
@@ -55,7 +52,15 @@ public class CategoryListActivity
 
         presenter.fetchCategoryListData();
     }
-
+    private int getResourceId(String pVariableName, String pResourcename, String pPackageName)
+    {
+        try {
+            return getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
     @Override
     public void displayData(CategoryListViewModel viewModel) {
         Log.e(TAG, "displayCategoryListData()");

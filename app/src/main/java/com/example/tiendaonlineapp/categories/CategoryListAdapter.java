@@ -1,8 +1,6 @@
 package com.example.tiendaonlineapp.categories;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +20,11 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     private List<CategoryItem> itemList;
     private final View.OnClickListener clickListener;
     //in the Constructor, pass the context in the parametres
-    int[] svgResources;
+    private Context context;
 
 
-    public CategoryListAdapter(View.OnClickListener listener, int[] svgResources) {
-        this.svgResources = svgResources;
+    public CategoryListAdapter(View.OnClickListener listener, Context context) {
+        this.context = context;
         itemList = new ArrayList();
         clickListener = listener;
     }
@@ -64,9 +62,21 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
         holder.itemView.setTag(itemList.get(position));
         holder.itemView.setOnClickListener(clickListener);
         holder.contentView.setText(itemList.get(position).content);
-        //Images resources will be stored in the Activity
-        holder.imageView.setImageResource(svgResources[position]);
+        //Images resources will be stored in the Activity Resources
+        holder.imageView.setImageResource(getResourceId(itemList.get(position).symbol,
+                "drawable",
+                context.getPackageName()));
     }
+    private int getResourceId(String pVariableName, String pResourcename, String pPackageName)
+    {
+        try {
+            return context.getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
         final TextView contentView;

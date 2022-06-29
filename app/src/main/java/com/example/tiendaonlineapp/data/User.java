@@ -8,12 +8,12 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-@Entity(tableName = "categories")
-public class CategoryItem {
+@Entity(tableName = "users")
+public class User {
     @PrimaryKey
-    public int id;
+    public String username;
 
-    public String content;
+    public String hashedPassword;
     public String svg;
     public String symbol;
     @Ignore
@@ -22,6 +22,6 @@ public class CategoryItem {
 
     @Override
     public String toString() {
-        return content;
+        return username;
     }
 }
