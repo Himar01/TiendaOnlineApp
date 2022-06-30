@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.data.CategoryItem;
-import com.example.tiendaonlineapp.products.ProductListActivity;
 
 public class CategoryListActivity
         extends AppCompatActivity implements CategoryListContract.View {
@@ -34,7 +34,7 @@ public class CategoryListActivity
             actionBar.setTitle(R.string.app_name);
         }
         //Adding symbols to each category.
-
+        setUpButtons();
         listAdapter = new CategoryListAdapter(new View.OnClickListener() {
 
             @Override
@@ -52,15 +52,15 @@ public class CategoryListActivity
 
         presenter.fetchCategoryListData();
     }
-    private int getResourceId(String pVariableName, String pResourcename, String pPackageName)
-    {
-        try {
-            return getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return -1;
-        }
+
+    private void setUpButtons() {
+        TextView login = findViewById(R.id.login);
+        login.setOnClickListener(view -> presenter.loginButtonPressed());
+/*        ImageButton logout = findViewById(R.id.logout);
+        logout.setOnClickListener(view -> presenter.buttonPressed(view));*/
     }
+
+
     @Override
     public void displayData(CategoryListViewModel viewModel) {
         Log.e(TAG, "displayCategoryListData()");
@@ -78,10 +78,10 @@ public class CategoryListActivity
     }
 
     @Override
-    public void navigateToProductListScreen() {
+    public void navigateToNextActivity(Class c) {
         // Log.e(TAG, "navigateToNextScreen()");
 
-        Intent intent = new Intent(this, ProductListActivity.class);
+        Intent intent = new Intent(this, c);
         startActivity(intent);
     }
 
@@ -111,4 +111,5 @@ public class CategoryListActivity
     public void injectPresenter(CategoryListContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
 }

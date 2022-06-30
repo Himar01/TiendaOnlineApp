@@ -12,7 +12,7 @@ public interface CategoryListContract {
 
         void displayData(CategoryListViewModel viewModel);
 
-        void navigateToProductListScreen();
+        void navigateToNextActivity(Class c);
     }
 
     interface Presenter {
@@ -22,6 +22,7 @@ public interface CategoryListContract {
 
         void fetchCategoryListData();
         void selectCategoryListData(CategoryItem item);
+        void loginButtonPressed();
     }
 
     interface Model {

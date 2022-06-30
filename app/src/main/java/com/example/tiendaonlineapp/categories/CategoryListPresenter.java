@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.tiendaonlineapp.app.AppMediator;
 import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.login.LoginActivity;
+import com.example.tiendaonlineapp.products.ProductListActivity;
 import com.example.tiendaonlineapp.products.ProductListState;
 
 import java.lang.ref.WeakReference;
@@ -63,8 +65,13 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
         ProductListState pdState = new ProductListState();
         pdState.categoryId = item.id;
         mediator.setProductListState(pdState);
-        view.get().navigateToProductListScreen();
+        view.get().navigateToNextActivity(ProductListActivity.class);
     }
 
+    @Override
+    public void loginButtonPressed() {
+            view.get().navigateToNextActivity(LoginActivity.class);
+        }
+ }
 
-}
+
