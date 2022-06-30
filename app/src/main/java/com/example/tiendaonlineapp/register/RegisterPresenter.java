@@ -33,4 +33,9 @@ RegisterPresenter implements RegisterContract.Presenter {
         this.model = model;
     }
 
+    @Override
+    public void loginButtonPressed() {
+        view.get().finishActivity();
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.example.tiendaonlineapp.register;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,9 +29,7 @@ public class RegisterActivity
         if (actionBar != null) {
             actionBar.setTitle(R.string.app_name);
         }
-
-        // Log.e(TAG, "onCreate()");
-
+        setUpButtons();
         // do the setup
         RegisterScreen.configure(this);
 
@@ -38,7 +38,17 @@ public class RegisterActivity
 
 
 
+    private void setUpButtons() {
+        Button login = findViewById(R.id.loginButton);
+        login.setOnClickListener(view -> {
+            loginButtonPressed();
+        });
+    }
 
+
+    private void loginButtonPressed() {
+        presenter.loginButtonPressed();
+    }
 
 
 
@@ -46,5 +56,10 @@ public class RegisterActivity
     @Override
     public void injectPresenter(RegisterContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void finishActivity() {
+        finish();
     }
 }

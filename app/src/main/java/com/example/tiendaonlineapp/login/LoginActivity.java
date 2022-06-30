@@ -40,13 +40,17 @@ public class LoginActivity
     private void setUpButtons() {
         Button register = findViewById(R.id.registerButton);
         register.setOnClickListener(view -> {
-            presenter.registerButtonPressed();
+            registerButtonPressed();
         });
     }
+
+    private void registerButtonPressed() {
+        presenter.registerButtonPressed();
+    }
+
     @Override
     public void navigateToNextActivity(Class c) {
         // Log.e(TAG, "navigateToNextScreen()");
-
         Intent intent = new Intent(this, c);
         startActivity(intent);
     }

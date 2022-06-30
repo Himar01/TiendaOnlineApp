@@ -55,9 +55,13 @@ public class CategoryListActivity
 
     private void setUpButtons() {
         TextView login = findViewById(R.id.login);
-        login.setOnClickListener(view -> presenter.loginButtonPressed());
+        login.setOnClickListener(view -> loginButtonPressed());
 /*        ImageButton logout = findViewById(R.id.logout);
         logout.setOnClickListener(view -> presenter.buttonPressed(view));*/
+    }
+
+    private void loginButtonPressed() {
+        presenter.loginButtonPressed();
     }
 
 

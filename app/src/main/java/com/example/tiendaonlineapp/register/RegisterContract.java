@@ -7,7 +7,7 @@ public interface RegisterContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-
+        void finishActivity();
     }
 
     interface Presenter {
@@ -15,6 +15,7 @@ public interface RegisterContract {
 
         void injectModel(Model model);
 
+        void loginButtonPressed();
     }
 
     interface Model {
