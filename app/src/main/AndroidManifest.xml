@@ -40,6 +40,12 @@
             android:exported="true">
 
         </activity>
+        <activity
+            android:name="com.example.tiendaonlineapp.register.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

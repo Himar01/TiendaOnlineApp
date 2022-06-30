@@ -1,6 +1,7 @@
 package com.example.tiendaonlineapp.login;
 
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.register.RegisterActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -20,9 +21,6 @@ LoginPresenter implements LoginContract.Presenter {
         //state = mediator.getLoginState();
     }
 
-
-
-
     @Override
     public void injectView(WeakReference<LoginContract.View> view) {
         this.view = view;
@@ -33,4 +31,8 @@ LoginPresenter implements LoginContract.Presenter {
         this.model = model;
     }
 
+    @Override
+    public void registerButtonPressed() {
+        view.get().navigateToNextActivity(RegisterActivity.class);
+    }
 }

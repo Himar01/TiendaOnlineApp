@@ -1,16 +1,17 @@
-package com.example.tiendaonlineapp.login;
+package com.example.tiendaonlineapp.register;
 
 import com.example.tiendaonlineapp.data.RepositoryContract;
 
-public class LoginModel implements LoginContract.Model {
+public class RegisterModel implements RegisterContract.Model {
 
     //public static String TAG = LoginModel.class.getSimpleName();
     public static String TAG = "TiendaOnlineApp.LoginModel";
 
     private RepositoryContract repository;
 
-    public LoginModel(RepositoryContract repository) {
+    public RegisterModel(RepositoryContract repository) {
         this.repository = repository;
     }
+
 
 }

@@ -1,13 +1,12 @@
-package com.example.tiendaonlineapp.login;
+package com.example.tiendaonlineapp.register;
 
 import java.lang.ref.WeakReference;
 
-public interface LoginContract {
+public interface RegisterContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void navigateToNextActivity(Class c);
 
     }
 
@@ -16,7 +15,6 @@ public interface LoginContract {
 
         void injectModel(Model model);
 
-        void registerButtonPressed();
     }
 
     interface Model {

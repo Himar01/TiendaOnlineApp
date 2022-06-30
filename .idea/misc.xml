@@ -30,6 +30,7 @@
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/cursor.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/favorite_button_icon.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/main_button.xml" value="0.2995" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/secondary_button.xml" value="0.314" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/secondarybutton.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/activity_main.xml" value="0.296875" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/category_list.xml" value="0.2" />
@@ -39,6 +40,7 @@
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/product_detail.xml" value="0.4125" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/product_list.xml" value="0.4512820512820513" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/product_list_activity.xml" value="0.4514749893116717" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/register_activity.xml" value="0.22" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/test.xml" value="0.232421875" />
       </map>
     </option>

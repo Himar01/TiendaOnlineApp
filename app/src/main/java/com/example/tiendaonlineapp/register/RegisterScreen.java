@@ -1,4 +1,4 @@
-package com.example.tiendaonlineapp.login;
+package com.example.tiendaonlineapp.register;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -8,19 +8,19 @@ import com.example.tiendaonlineapp.data.RepositoryContract;
 
 import java.lang.ref.WeakReference;
 
-public class LoginScreen {
+public class RegisterScreen {
 
-    public static void configure(LoginContract.View view) {
+    public static void configure(RegisterContract.View view) {
 
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
 
 
         AppMediator mediator = AppMediator.getInstance();
-        LoginContract.Presenter presenter = new LoginPresenter(mediator);
+        RegisterContract.Presenter presenter = new RegisterPresenter(mediator);
 
         RepositoryContract repository = OnlineShopRepository.getInstance(context.get());
-        LoginContract.Model model = new LoginModel(repository);
+        RegisterContract.Model model = new RegisterModel(repository);
 
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));
