@@ -26,4 +26,5 @@ Tipo de enfriamiento: Disipador térmico</string>
     <string name="password">Contraseña</string>
     <string name="register">Crear cuenta</string>
     <string name="new_client">¿Eres cliente nuevo?</string>
+    <string name="already_registered">¿Ya estás registrado?</string>
 </resources>
