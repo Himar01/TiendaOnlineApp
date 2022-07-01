@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 
 @Entity(
-        tableName = "favoriteItem",
+        tableName = "favorites",
         primaryKeys = { "productId", "username" },
         foreignKeys = {@ForeignKey(
                 entity = User.class,

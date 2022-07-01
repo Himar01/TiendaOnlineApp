@@ -18,6 +18,7 @@ RegisterPresenter implements RegisterContract.Presenter {
     public RegisterPresenter(AppMediator mediator) {
         this.mediator = mediator;
         //state = mediator.getLoginState();
+        state = mediator.getRegisterState();
     }
 
 
@@ -36,6 +37,11 @@ RegisterPresenter implements RegisterContract.Presenter {
     @Override
     public void loginButtonPressed() {
         view.get().finishActivity();
+    }
+
+    @Override
+    public void registerButtonPressed() {
+
     }
 
 }

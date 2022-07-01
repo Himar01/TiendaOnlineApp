@@ -3,6 +3,7 @@ package com.example.tiendaonlineapp.app;
 import com.example.tiendaonlineapp.categories.CategoryListState;
 import com.example.tiendaonlineapp.product.ProductDetailState;
 import com.example.tiendaonlineapp.products.ProductListState;
+import com.example.tiendaonlineapp.register.RegisterState;
 
 public class AppMediator {
 
@@ -11,6 +12,7 @@ public class AppMediator {
     private CategoryListState categoryListState = new CategoryListState();
     private ProductListState productListState = new ProductListState();
     private ProductDetailState productDetailState = new ProductDetailState();
+    private RegisterState registerState = new RegisterState();
 
     private AppMediator() {
 
@@ -27,18 +29,21 @@ public class AppMediator {
     public static void resetInstance() {
         INSTANCE = null;
     }
-    public void setProductListState(ProductListState state) {
-        productListState = state;
-    }
-    public void setProductDetailState(ProductDetailState state){productDetailState = state;}
+
     public CategoryListState getCategoryListState() {
         return categoryListState;
     }
 
-    public ProductListState getProductListState() {return productListState;
+    public void setProductListState(ProductListState state) {
+        productListState = state;
     }
+    public ProductListState getProductListState() {return productListState;}
 
+    public void setProductDetailState(ProductDetailState state){productDetailState = state;}
     public ProductDetailState getProductDetailState(){
         return productDetailState;
+    }
+    public RegisterState getRegisterState(){
+        return registerState;
     }
 }

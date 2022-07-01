@@ -26,7 +26,9 @@
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/_user.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/background_input_text.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/border.xml" value="0.2995" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/border_good.xml" value="0.2255" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/button_pulse.xml" value="0.2995" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/button_wrong.xml" value="0.2255" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/cursor.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/favorite_button_icon.xml" value="0.2995" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/drawable/main_button.xml" value="0.2995" />
@@ -42,8 +44,11 @@
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/product_detail.xml" value="0.4125" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/product_list.xml" value="0.4512820512820513" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/product_list_activity.xml" value="0.4514749893116717" />
-        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/register_activity.xml" value="0.1" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/register_activity.xml" value="0.22" />
         <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/test.xml" value="0.232421875" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/layout/toast.xml" value="0.1" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3325" />
+        <entry key="..\:/Users/himar/AndroidStudioProjects/TiendaOnlineApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3325" />
       </map>
     </option>
   </component>

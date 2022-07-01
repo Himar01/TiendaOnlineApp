@@ -1,8 +1,12 @@
 package com.example.tiendaonlineapp.register;
 
-import android.content.Intent;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +21,7 @@ public class RegisterActivity
     public static String TAG = "TiendaOnlineApp.LoginActivity";
 
     private RegisterContract.Presenter presenter;
+    private View toastLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,10 @@ public class RegisterActivity
             actionBar.setTitle(R.string.app_name);
         }
         setUpButtons();
+        LayoutInflater inflater = getLayoutInflater();
+        toastLayout = inflater.inflate(R.layout.toast,
+                null);
+
         // do the setup
         RegisterScreen.configure(this);
 
@@ -43,6 +52,28 @@ public class RegisterActivity
         login.setOnClickListener(view -> {
             loginButtonPressed();
         });
+        Button register = findViewById(R.id.registerButton);
+        register.setOnClickListener(view -> {
+            registerButtonPressed();
+        });
+    }
+
+    private void registerButtonPressed() {
+
+    TextView toast = findViewById(R.id.toast);
+    toast.setText("Contraseña incorrecta");
+    toast.setVisibility(View.VISIBLE);
+        toast.animate()
+                .alpha(0.0f)
+                .setDuration(2000)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        toast.clearAnimation();
+                        toast.setVisibility(View.GONE);
+                    }
+                });
     }
 
 
@@ -62,4 +93,5 @@ public class RegisterActivity
     public void finishActivity() {
         finish();
     }
+
 }

@@ -8,6 +8,7 @@ public interface RegisterContract {
         void injectPresenter(Presenter presenter);
 
         void finishActivity();
+
     }
 
     interface Presenter {
@@ -16,6 +17,8 @@ public interface RegisterContract {
         void injectModel(Model model);
 
         void loginButtonPressed();
+
+        void registerButtonPressed();
     }
 
     interface Model {
