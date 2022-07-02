@@ -1,10 +1,10 @@
 package com.example.tiendaonlineapp.register;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -59,23 +59,51 @@ public class RegisterActivity
     }
 
     private void registerButtonPressed() {
+        startToastAnimation("Las contraseñas no coinciden");
 
-    TextView toast = findViewById(R.id.toast);
-    toast.setText("Contraseña incorrecta");
-    toast.setVisibility(View.VISIBLE);
-        toast.animate()
-                .alpha(0.0f)
-                .setDuration(2000)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        toast.clearAnimation();
-                        toast.setVisibility(View.GONE);
-                    }
-                });
+
     }
+    private void startToastAnimation(String mensaje){
+        TextView toast = findViewById(R.id.toast);
+        toast.setVisibility(View.VISIBLE);
+        Animation out = new AlphaAnimation(1.0f,0.0f);
+        out.setDuration(3000);
+        Animation in = new AlphaAnimation(0.0f,1.0f);
+        out.setDuration(3000);
+        out.setAnimationListener(new Animation.AnimationListener() {
 
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                toast.setVisibility(View.GONE);
+
+            }
+        });
+        in.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                toast.startAnimation(in);
+
+            }
+        });
+        toast.startAnimation(in);
+    }
 
     private void loginButtonPressed() {
         presenter.loginButtonPressed();
