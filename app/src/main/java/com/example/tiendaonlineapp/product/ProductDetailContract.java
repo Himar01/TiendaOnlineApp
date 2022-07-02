@@ -1,6 +1,7 @@
 package com.example.tiendaonlineapp.product;
 
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.login.LoginActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -10,6 +11,12 @@ public interface ProductDetailContract {
         void injectPresenter(Presenter presenter);
 
         void displayData(ProductDetailViewModel viewModel);
+
+        void userLogged(String username);
+
+        void userLogout();
+
+        void navigateToNextActivity(Class<LoginActivity> c);
     }
 
     interface Presenter {
@@ -19,7 +26,11 @@ public interface ProductDetailContract {
 
         void fetchProductDetail();
 
-        int fetchImage();
+        void onResume();
+
+        void logoutButtonPressed();
+
+        void loginButtonPressed();
     }
 
     interface Model {

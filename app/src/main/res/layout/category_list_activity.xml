@@ -60,7 +60,7 @@
             app:tint="#575757"
             android:visibility="gone"/>
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/like"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/userBar"
@@ -72,11 +72,13 @@
             android:layout_weight="0"
             android:background="#FAFAFA"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="13dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_heart_svgrepo_com"
+            android:drawableBottom="@drawable/like_button_selector"
+            style="?android:attr/borderlessButtonStyle"
+            android:textOff=""
+            android:textOn=""
             app:tint="#ad0000"
-            tools:ignore="SpeakableTextPresentCheck"
             android:visibility="gone"/>
 
         <TextView

@@ -1,6 +1,7 @@
 package com.example.tiendaonlineapp.login;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -24,6 +27,7 @@ public class LoginActivity
     public static String TAG = "TiendaOnlineApp.LoginActivity";
 
     private LoginContract.Presenter presenter;
+    private EditText username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +41,26 @@ public class LoginActivity
             actionBar.setTitle(R.string.app_name);
         }
 
-        setUpButtons();
+        setUpViews();
         // Log.e(TAG, "onCreate()");
 
         // do the setup
         LoginScreen.configure(this);
+
+
     }
 
-    private void setUpButtons() {
+    private void setUpViews() {
         Button register = findViewById(R.id.registerButton);
-        register.setOnClickListener(view -> {
-            registerButtonPressed();
-        });
+        register.setOnClickListener(view -> registerButtonPressed());
+        Button login = findViewById(R.id.loginButton);
+        login.setOnClickListener(view -> loginButtonPressed());
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+    }
+
+    private void loginButtonPressed() {
+        presenter.loginButtonPressed(username.getText().toString(),password.getText().toString());
     }
 
     private void registerButtonPressed() {
@@ -60,60 +72,73 @@ public class LoginActivity
         super.onResume();
         presenter.onResume();
     }
+
+    @Override
+    public void resetScroll(){
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            ScrollView scrollView = findViewById(R.id.scrollView);
+            scrollView.scrollTo(0, 0);
+        }
+    }
+
     @Override
     public void showToastAnimation(int message, boolean isGood){
-        TextView toast = findViewById(R.id.toast);
-        if (isGood) {
-            toast.setBackground(AppCompatResources.getDrawable(this, R.drawable.border_good));
-        } else {
-            toast.setBackground(AppCompatResources.getDrawable(this, R.drawable.border_wrong));
-        }
-        toast.setText(getString(message));
-        Animation out = new AlphaAnimation(1.0f,0.0f);
-        out.setDuration(1000);
-        Animation in = new AlphaAnimation(0.0f,1.0f);
-        in.setDuration(1000);
-        out.setAnimationListener(new Animation.AnimationListener() {
+        runOnUiThread (new Thread(new Runnable() {
+            public void run() {
+                TextView toast = findViewById(R.id.toast);
+                if (isGood) {
+                    toast.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.drawable.border_good));
+                } else {
+                    toast.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.drawable.border_wrong));
+                }
+                toast.setText(getString(message));
+                Animation out = new AlphaAnimation(1.0f,0.0f);
+                out.setDuration(1000);
+                Animation in = new AlphaAnimation(0.0f,1.0f);
+                in.setDuration(1000);
+                out.setAnimationListener(new Animation.AnimationListener() {
 
-            @Override
-            public void onAnimationStart(Animation animation) {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
 
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                Log.d(TAG,"Out Animation Ended");
-                toast.setVisibility(View.GONE);
-
-            }
-        });
-        in.setAnimationListener(new Animation.AnimationListener() {
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                Log.d(TAG,"In Animation Ended");
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        toast.startAnimation(out);
                     }
-                }, 2000);
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
 
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Log.d(TAG,"Out Animation Ended");
+                        toast.setVisibility(View.GONE);
+
+                    }
+                });
+                in.setAnimationListener(new Animation.AnimationListener() {
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Log.d(TAG,"In Animation Ended");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                toast.startAnimation(out);
+                            }
+                        }, 2000);
+
+                    }
+                });
+                toast.setVisibility(View.VISIBLE);
+                toast.startAnimation(in);
             }
-        });
-        toast.setVisibility(View.VISIBLE);
-        toast.startAnimation(in);
+        }));
     }
 
     @Override
@@ -121,6 +146,16 @@ public class LoginActivity
         // Log.e(TAG, "navigateToNextScreen()");
         Intent intent = new Intent(this, c);
         startActivity(intent);
+    }
+
+    @Override
+    public void finishActivity() {
+        finish();
+    }
+
+    @Override
+    public void erasePasswords() {
+        password.setText("");
     }
 
     @Override

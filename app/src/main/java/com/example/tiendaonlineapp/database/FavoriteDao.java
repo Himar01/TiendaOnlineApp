@@ -6,8 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.FavoriteItem;
+
+import java.util.List;
 
 @Dao
 public interface FavoriteDao {
@@ -16,9 +17,9 @@ public interface FavoriteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertFavoriteItem(FavoriteItem favItem);
 
+    @Query("SELECT * FROM favorites WHERE username = :username")
+    List<FavoriteItem> loadFavoriteItems(String username);
+
     @Delete
     void deleteFavoriteItem(FavoriteItem favItem);
-
-    @Query("SELECT * FROM favorites WHERE username = :username")
-    FavoriteItem loadFavoriteItems(String username);
 }

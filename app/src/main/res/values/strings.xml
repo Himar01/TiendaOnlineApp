@@ -28,6 +28,10 @@ Tipo de enfriamiento: Disipador térmico</string>
     <string name="new_client">¿Eres cliente nuevo?</string>
     <string name="already_registered">¿Ya estás registrado?</string>
     <string name="not_same_password">Las contraseñas no coinciden</string>
-    <string name="userExists">Este nombre de usuario no está disponible</string>
+    <string name="userExists">Este nombre de usuario ya existe</string>
     <string name="registerConfirmed">El usuario ha sido registrado correctamente</string>
+    <string name="passwordMinChars">La contraseña debe tener mínimo 8 caracteres</string>
+    <string name="usernameEmpty">El nombre de usuario está vacío</string>
+    <string name="greeting">¡Hola, %1$s!</string>
+    <string name="loginUnable">No se ha podido iniciar sesión</string>
 </resources>

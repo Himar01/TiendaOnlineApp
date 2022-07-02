@@ -1,17 +1,15 @@
 package com.example.tiendaonlineapp.register;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.method.KeyListener;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -91,6 +89,19 @@ public class RegisterActivity
         });*/
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @Override
+    public void resetScroll(){
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            ScrollView scrollView = findViewById(R.id.scrollView);
+            scrollView.scrollTo(0, 0);
+        }
+    }
 
     @Override
     public void showToastAnimation(int message, boolean isGood){
@@ -155,19 +166,17 @@ public class RegisterActivity
     @Override
     public void erasePasswords() {
         password.setText("");
-        passwordRepetition.setText("");
     }
 
     private void loginButtonPressed() {
         presenter.loginButtonPressed();
     }
+
     private void registerButtonPressed() {
         presenter.registerButtonPressed(username.getText().toString(), new String[]{
                 password.getText().toString(),
                 passwordRepetition.getText().toString()});
     }
-
-
 
     @Override
     public void injectPresenter(RegisterContract.Presenter presenter) {

@@ -43,6 +43,12 @@ public interface RepositoryContract {
     interface CheckUsernameCallback{
         void onUsernameChecked(boolean isValid);
     }
+    interface InsertUsernameCallback{
+        void onUsernameInserted();
+    }
+    interface LoginUsername{
+        void onUsernameChecked(String token);
+    }
 
     void loadCatalog(
             boolean clearFirst, OnlineShopRepository.FetchCatalogDataCallback callback);
@@ -71,4 +77,8 @@ public interface RepositoryContract {
             CategoryItem category, OnlineShopRepository.UpdateCategoryCallback callback);
     void checkUsernameValid(String username,
                             RepositoryContract.CheckUsernameCallback callback);
+    void insertUsername(User user,
+                        RepositoryContract.InsertUsernameCallback callback);
+    void loginUser(User user, RepositoryContract.LoginUsername callback);
+
 }

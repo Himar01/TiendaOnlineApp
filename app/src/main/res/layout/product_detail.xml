@@ -36,19 +36,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
+            android:text="@string/greeting"
             android:layout_marginTop="14dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <ImageButton
             android:id="@+id/logout"
-            app:layout_constraintEnd_toEndOf="@id/like"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/userBar"
             android:contentDescription="@string/logout"
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="15dp"
             android:layout_weight="0"
             android:background="#FAFAFA"
             android:paddingTop="14dp"
@@ -56,25 +57,8 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/_logout"
             app:tint="#575757"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
-        <ImageButton
-            android:id="@+id/like"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/userBar"
-            android:contentDescription="@string/likebutton"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="15dp"
-            android:layout_weight="0"
-            android:background="#FAFAFA"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_heart_svgrepo_com"
-            app:tint="#ad0000"
-            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/login"
@@ -88,10 +72,9 @@
             android:text="@string/iniciar_registrarse"
             android:textColor="#FF2626"
             android:textSize="20sp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/userBar"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toTopOf="@+id/userBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
@@ -241,7 +224,7 @@
 
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="#F0E7FF"
-                        android:drawableStart="@drawable/favorite_button_icon"
+                        android:drawableStart="@drawable/favorite_button_selector"
                         android:drawablePadding="10dp"
                         android:fontFamily="sans-serif-medium"
 

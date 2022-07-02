@@ -1,7 +1,5 @@
 package com.example.tiendaonlineapp.categories;
 
-import android.util.Log;
-
 import com.example.tiendaonlineapp.app.AppMediator;
 import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
@@ -27,13 +25,30 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
         state = mediator.getCategoryListState();
     }
 
-    public void onStart() {
-        Log.e(TAG, "onStart()");
+    @Override
+    public void onResume() {
+        CategoryListState savedState = mediator.getCategoryListState();
+        if(savedState!=null){
+            state = savedState;
+        }
+        if(mediator.user!=null){
+            view.get().userLogged(mediator.user.username);
+        }else{
+            view.get().userLogout();
+        }
     }
 
-    public void onResume() {
-        Log.e(TAG, "onResume()");
+    @Override
+    public void logoutButtonPressed() {
+        mediator.user=null;
+        view.get().userLogout();
     }
+
+    @Override
+    public void likeButtonPressed() {
+
+    }
+
 
     @Override
     public void injectView(WeakReference<CategoryListContract.View> view) {
@@ -48,7 +63,6 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     @Override
     public void fetchCategoryListData() {
         // Log.e(TAG, "fetchCategoryListData()");
-
         // call the model
         model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
 

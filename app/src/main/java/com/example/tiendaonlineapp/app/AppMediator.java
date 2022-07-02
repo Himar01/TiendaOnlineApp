@@ -1,6 +1,7 @@
 package com.example.tiendaonlineapp.app;
 
 import com.example.tiendaonlineapp.categories.CategoryListState;
+import com.example.tiendaonlineapp.data.User;
 import com.example.tiendaonlineapp.login.LoginState;
 import com.example.tiendaonlineapp.product.ProductDetailState;
 import com.example.tiendaonlineapp.products.ProductListState;
@@ -15,7 +16,8 @@ public class AppMediator {
     private ProductDetailState productDetailState = new ProductDetailState();
     private RegisterState registerState = new RegisterState();
     private LoginState loginState = new LoginState();
-
+    public User user = null;
+    public boolean toastLogin;
     private AppMediator() {
 
     }

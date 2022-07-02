@@ -2,8 +2,10 @@ package com.example.tiendaonlineapp.data;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.room.Room;
 
 import com.example.tiendaonlineapp.database.CategoryDao;
@@ -20,9 +22,12 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class OnlineShopRepository implements RepositoryContract{
 
     public static String TAG = OnlineShopRepository.class.getSimpleName();
@@ -30,6 +35,9 @@ public class OnlineShopRepository implements RepositoryContract{
     public static final String DB_FILE = "catalog.db";
     public static final String JSON_FILE = "onlineshop.json";
     public static final String JSON_ROOT = "categories";
+    private static final SecureRandom secureRandom = new SecureRandom(); //threadsafe
+    private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder(); //threadsafe
+
 
     private static OnlineShopRepository INSTANCE;
 
@@ -221,5 +229,45 @@ public class OnlineShopRepository implements RepositoryContract{
                 }
             }
         });
+    }
+    @Override
+    public void insertUsername(User user,
+                               RepositoryContract.InsertUsernameCallback callback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getUserDao().insertUser(user);
+                    callback.onUsernameInserted();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void loginUser(User user, RepositoryContract.LoginUsername callback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                if(callback != null) {
+                    if(getUserDao().checkUsernameValid(user.username,user.hashedPassword)!=null){
+                        //Generating token that will be used to request user information further
+                        String token = generateNewToken();
+                        user.token = token;
+                        getUserDao().updateUser(user);
+                        callback.onUsernameChecked(token);
+                    }else{
+                        callback.onUsernameChecked(null);
+                    }
+                }
+            }
+        });
+    }
+
+    private String generateNewToken() {
+        byte[] randomBytes = new byte[24];
+        secureRandom.nextBytes(randomBytes);
+        return base64Encoder.encodeToString(randomBytes);
+
     }
 }

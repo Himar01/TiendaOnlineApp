@@ -1,6 +1,7 @@
 package com.example.tiendaonlineapp.login;
 
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.data.User;
 
 public class LoginModel implements LoginContract.Model {
 
@@ -13,4 +14,9 @@ public class LoginModel implements LoginContract.Model {
         this.repository = repository;
     }
 
+    @Override
+    public void loginUser(String username, String password, RepositoryContract.LoginUsername callback) {
+        User user = new User(username,password);
+        repository.loginUser(user,callback);
+    }
 }

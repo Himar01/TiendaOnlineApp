@@ -13,16 +13,24 @@ public interface CategoryListContract {
         void displayData(CategoryListViewModel viewModel);
 
         void navigateToNextActivity(Class c);
+
+        void userLogged(String username);
+        void userLogout();
     }
 
     interface Presenter {
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
-        //void injectRouter(Router router);
 
         void fetchCategoryListData();
         void selectCategoryListData(CategoryItem item);
         void loginButtonPressed();
+
+        void onResume();
+
+        void logoutButtonPressed();
+
+        void likeButtonPressed();
     }
 
     interface Model {

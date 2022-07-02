@@ -3,6 +3,7 @@ package com.example.tiendaonlineapp.register;
 import android.util.Log;
 
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.data.User;
 
 public class RegisterModel implements RegisterContract.Model {
 
@@ -16,10 +17,18 @@ public class RegisterModel implements RegisterContract.Model {
     }
     @Override
     public void checkUsernameValid(String username,
-                                     final RepositoryContract.CheckUsernameCallback callback) {
+                                     RepositoryContract.CheckUsernameCallback callback) {
         Log.d(TAG, "checkUsernameValid()");
         repository.checkUsernameValid(username, callback);
-
     }
+
+    @Override
+    public void insertUser(String username, String password,
+                           RepositoryContract.InsertUsernameCallback callback){
+        User newUser = new User(username, password);
+        repository.insertUsername(newUser, callback);
+    }
+
+
 
 }

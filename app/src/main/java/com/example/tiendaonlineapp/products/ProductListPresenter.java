@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.tiendaonlineapp.app.AppMediator;
 import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.login.LoginActivity;
+import com.example.tiendaonlineapp.product.ProductDetailActivity;
 import com.example.tiendaonlineapp.product.ProductDetailState;
 
 import java.lang.ref.WeakReference;
@@ -23,7 +25,6 @@ public class ProductListPresenter implements ProductListContract.Presenter {
     public ProductListPresenter(AppMediator mediator) {
         this.mediator = mediator;
         state = mediator.getProductListState();
-        //state = mediator.getProductListState();
     }
 
 
@@ -51,11 +52,37 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         ProductDetailState productState = new ProductDetailState();
         productState.productId = item.id;
         mediator.setProductDetailState(productState);
-        view.get().navigateToProductDetailScreen();
+        view.get().navigateToNextActivity(ProductDetailActivity.class);
+    }
+
+
+    @Override
+    public void onResume() {
+        ProductListState savedState = mediator.getProductListState();
+        if(savedState!=null){
+            state = savedState;
+        }
+        if(mediator.user!=null){
+            view.get().userLogged(mediator.user.username);
+        }else{
+            view.get().userLogout();
+        }
     }
 
     @Override
-    public void onCreate() {
+    public void likeButtonPressed() {
+
+    }
+
+    @Override
+    public void logoutButtonPressed() {
+        mediator.user=null;
+        view.get().userLogout();
+    }
+
+    @Override
+    public void loginButtonPressed() {
+        view.get().navigateToNextActivity(LoginActivity.class);
     }
 
     @Override

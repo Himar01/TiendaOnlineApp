@@ -12,7 +12,12 @@ public interface ProductListContract {
 
         void displayData(ProductListViewModel viewModel);
 
-        void navigateToProductDetailScreen();
+        void navigateToNextActivity(Class c);
+
+        void userLogged(String username);
+
+        void userLogout();
+
 
     }
 
@@ -21,14 +26,19 @@ public interface ProductListContract {
 
         void injectModel(Model model);
 
-
         void onBackPressed();
 
         void fetchCategoryListData();
 
         void selectCategoryListData(ProductItem item);
 
-        void onCreate();
+        void onResume();
+
+        void likeButtonPressed();
+
+        void logoutButtonPressed();
+
+        void loginButtonPressed();
     }
 
     interface Model {
