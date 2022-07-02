@@ -1,6 +1,9 @@
 package com.example.tiendaonlineapp.register;
 
+import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.data.RepositoryContract;
+import com.example.tiendaonlineapp.login.LoginState;
 
 import java.lang.ref.WeakReference;
 
@@ -14,6 +17,7 @@ RegisterPresenter implements RegisterContract.Presenter {
     private RegisterState state;
     private RegisterContract.Model model;
     private AppMediator mediator;
+
 
     public RegisterPresenter(AppMediator mediator) {
         this.mediator = mediator;
@@ -40,8 +44,22 @@ RegisterPresenter implements RegisterContract.Presenter {
     }
 
     @Override
-    public void registerButtonPressed() {
+    public void registerButtonPressed(String username, String[] passwords) {
+        model.checkUsernameValid(username, new RepositoryContract.CheckUsernameCallback(){
 
+            @Override
+            public void onUsernameChecked(boolean isValid) {
+                if(isValid){
+                    LoginState loginState = new LoginState();
+                    loginState.toast = R.string.registerConfirmed;
+                    mediator.setLoginState(loginState);
+                    view.get().finishActivity();
+                }else {
+                    view.get().showToastAnimation(R.string.userExists, false);
+                    view.get().erasePasswords();
+                }
+            }
+        });
     }
 
 }

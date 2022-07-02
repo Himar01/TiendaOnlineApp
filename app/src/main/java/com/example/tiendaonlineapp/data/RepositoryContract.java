@@ -12,7 +12,6 @@ public interface RepositoryContract {
     interface GetProductListCallback {
         void setProductList(List<ProductItem> products);
     }
-
     interface GetProductCallback {
         void setProduct(ProductItem product);
 //        void setProduct(ProductItem product);
@@ -41,7 +40,9 @@ public interface RepositoryContract {
     interface UpdateProductCallback {
         void onProductUpdated();
     }
-
+    interface CheckUsernameCallback{
+        void onUsernameChecked(boolean isValid);
+    }
 
     void loadCatalog(
             boolean clearFirst, OnlineShopRepository.FetchCatalogDataCallback callback);
@@ -56,6 +57,7 @@ public interface RepositoryContract {
     void getCategory(int id, OnlineShopRepository.GetCategoryCallback callback);
     void getCategoryList(OnlineShopRepository.GetCategoryListCallback callback);
 
+
     void deleteProduct(
             ProductItem product, OnlineShopRepository.DeleteProductCallback callback);
 
@@ -67,4 +69,6 @@ public interface RepositoryContract {
 
     void updateCategory(
             CategoryItem category, OnlineShopRepository.UpdateCategoryCallback callback);
+    void checkUsernameValid(String username,
+                            RepositoryContract.CheckUsernameCallback callback);
 }

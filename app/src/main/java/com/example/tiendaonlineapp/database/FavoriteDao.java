@@ -19,6 +19,6 @@ public interface FavoriteDao {
     @Delete
     void deleteFavoriteItem(FavoriteItem favItem);
 
-    @Query("SELECT productId FROM favorites WHERE username = :username")
-    CategoryItem loadFavoriteItems(String username);
+    @Query("SELECT * FROM favorites WHERE username = :username")
+    FavoriteItem loadFavoriteItems(String username);
 }

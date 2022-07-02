@@ -19,8 +19,15 @@ LoginPresenter implements LoginContract.Presenter {
     public LoginPresenter(AppMediator mediator) {
         this.mediator = mediator;
         //state = mediator.getLoginState();
+        state = mediator.getLoginState();
     }
-
+    @Override
+    public void onResume(){
+        if(state.toast!=-1){
+            view.get().showToastAnimation(state.toast,true);
+            state.toast=-1;
+        }
+    }
     @Override
     public void injectView(WeakReference<LoginContract.View> view) {
         this.view = view;

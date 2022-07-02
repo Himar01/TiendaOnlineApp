@@ -8,7 +8,7 @@ public interface LoginContract {
         void injectPresenter(Presenter presenter);
 
         void navigateToNextActivity(Class c);
-
+        void showToastAnimation(int message, boolean isGood);
     }
 
     interface Presenter {
@@ -17,6 +17,7 @@ public interface LoginContract {
         void injectModel(Model model);
 
         void registerButtonPressed();
+        void onResume();
     }
 
     interface Model {

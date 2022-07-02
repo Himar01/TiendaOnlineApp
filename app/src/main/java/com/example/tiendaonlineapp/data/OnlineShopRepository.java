@@ -7,8 +7,10 @@ import android.util.Log;
 import androidx.room.Room;
 
 import com.example.tiendaonlineapp.database.CategoryDao;
+import com.example.tiendaonlineapp.database.FavoriteDao;
 import com.example.tiendaonlineapp.database.OnlineShopDatabase;
 import com.example.tiendaonlineapp.database.ProductDao;
+import com.example.tiendaonlineapp.database.UserDao;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -51,6 +53,8 @@ public class OnlineShopRepository implements RepositoryContract{
     private CategoryDao getCategoryDao() {
         return database.categoryDao();
     }
+    private UserDao getUserDao() { return database.userDao();}
+    private FavoriteDao getFavoriteDao(){return database.favoriteDao();}
 
     private ProductDao getProductDao() {
         return database.productDao();
@@ -204,6 +208,18 @@ public class OnlineShopRepository implements RepositoryContract{
 
     @Override
     public void updateCategory(CategoryItem category, UpdateCategoryCallback callback) {
+    }
 
+    @Override
+    public void checkUsernameValid(String username, CheckUsernameCallback callback){
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.onUsernameChecked(getUserDao().checkUsernameExists(username)==null);
+                }
+            }
+        });
     }
 }

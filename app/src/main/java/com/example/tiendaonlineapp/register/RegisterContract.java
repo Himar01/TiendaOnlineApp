@@ -1,5 +1,8 @@
 package com.example.tiendaonlineapp.register;
 
+import com.example.tiendaonlineapp.R;
+import com.example.tiendaonlineapp.data.RepositoryContract;
+
 import java.lang.ref.WeakReference;
 
 public interface RegisterContract {
@@ -8,7 +11,9 @@ public interface RegisterContract {
         void injectPresenter(Presenter presenter);
 
         void finishActivity();
+        void showToastAnimation(int message, boolean isGood);
 
+        void erasePasswords();
     }
 
     interface Presenter {
@@ -18,11 +23,12 @@ public interface RegisterContract {
 
         void loginButtonPressed();
 
-        void registerButtonPressed();
+        void registerButtonPressed(String username, String[] passwords);
     }
 
     interface Model {
-
+        void checkUsernameValid(String username,
+                                final RepositoryContract.CheckUsernameCallback callback);
     }
 
 }

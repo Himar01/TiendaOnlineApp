@@ -1,5 +1,6 @@
 package com.example.tiendaonlineapp.data;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -7,6 +8,7 @@ import androidx.room.PrimaryKey;
 public class User {
 
     @PrimaryKey
+    @NonNull
     public String username;
     public String hashedPassword;
 
