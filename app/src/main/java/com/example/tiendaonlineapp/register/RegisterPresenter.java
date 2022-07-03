@@ -70,7 +70,6 @@ RegisterPresenter implements RegisterContract.Presenter {
                     }else{
                         registerUser(username, passwords[0]);
                     }
-
                 }else {
                     view.get().showToastAnimation(R.string.userExists, false);
                     view.get().erasePasswords();
