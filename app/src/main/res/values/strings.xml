@@ -34,4 +34,5 @@ Tipo de enfriamiento: Disipador térmico</string>
     <string name="usernameEmpty">El nombre de usuario está vacío</string>
     <string name="greeting">¡Hola, %1$s!</string>
     <string name="loginUnable">No se ha podido iniciar sesión</string>
+    <string name="spacesNotAllowed">Los nombres con espacio intercalado no están permitidos</string>
 </resources>

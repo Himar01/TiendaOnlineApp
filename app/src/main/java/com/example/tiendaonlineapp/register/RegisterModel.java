@@ -25,6 +25,7 @@ public class RegisterModel implements RegisterContract.Model {
     @Override
     public void insertUser(String username, String password,
                            RepositoryContract.InsertUsernameCallback callback){
+        username = username.toLowerCase();
         User newUser = new User(username, password);
         repository.insertUsername(newUser, callback);
     }

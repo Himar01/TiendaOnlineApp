@@ -16,6 +16,7 @@ public class LoginModel implements LoginContract.Model {
 
     @Override
     public void loginUser(String username, String password, RepositoryContract.LoginUsername callback) {
+        username = username.toLowerCase();
         User user = new User(username,password);
         repository.loginUser(user,callback);
     }

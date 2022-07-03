@@ -58,6 +58,9 @@ RegisterPresenter implements RegisterContract.Presenter {
                     if(username.length()<1){
                         view.get().showToastAnimation(R.string.usernameEmpty, false);
                         view.get().erasePasswords();
+                    }else if(username.contains(" ")){
+                        view.get().showToastAnimation(R.string.spacesNotAllowed, false);
+                        view.get().erasePasswords();
                     }else if(!(passwords[0].equals(passwords[1]))){
                         view.get().showToastAnimation(R.string.not_same_password, false);
                         view.get().erasePasswords();

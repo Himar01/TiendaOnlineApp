@@ -58,7 +58,8 @@ LoginPresenter implements LoginContract.Presenter {
             public void onUsernameChecked(String token) {
              if(token!=null){
                  User user = new User();
-                 user.username=username;
+                 String lowerUsername = username.toLowerCase();
+                 user.username=lowerUsername;
                  user.token=token;
                  mediator.user=user;
                  view.get().finishActivity();
