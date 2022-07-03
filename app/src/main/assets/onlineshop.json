@@ -8,7 +8,7 @@
         {
           "id": 0,
           "product": "Tempest Liquid Cooler 360 RGB Kit de Refrigeración Líquida Negro",
-          "details": "•\tSoporte: Intel Socket LGA 775/1155/1156/1366/2011 (CPU Core i3 / i5 / i7)\n•\tCPU: AMD AM4 / FM2 / FM1 / AM3 + / AM3 / AM2 + / AM2\n•\tPotencia de entrada: 3,84 W\n•\tVentilador: N.I.T PWM x 3 Ventiladores\n•\tTamaño ventiladores: 120x120x25 mm x3\n•\tTamaño radiador: 395x120x27mm\n•\tLongitud tubo: 385mm\n•\tDiámetro tubo: 12.7mm\n•\tTamaño bomba: 78.5x84x45.5mm\n•\tVelocidad de los ventiladores: 800-2000 RPM (máx.)\n•\tRuido: 30 dBA (máx.)\n•\tFlujo de aire: 50,7 CFM (máx.)\n•\tPresión de aire: 1,5 mmH2O (máx.)\n•\tVoltaje: 12V\n•\tRodamiento hidráulico: Sí\n•\tInterfaz: 3 ventiladores PWM 4Pin + PUMP 3pin",
+          "details": "•tSoporte: Intel Socket LGA 775/1155/1156/1366/2011 (CPU Core i3 / i5 / i7)•\tCPU: AMD AM4 / FM2 / FM1 / AM3 + / AM3 / AM2 + / AM2\n•\tPotencia de entrada: 3,84 W\n•\tVentilador: N.I.T PWM x 3 Ventiladores\n•\tTamaño ventiladores: 120x120x25 mm x3\n•\tTamaño radiador: 395x120x27mm\n•\tLongitud tubo: 385mm\n•\tDiámetro tubo: 12.7mm\n•\tTamaño bomba: 78.5x84x45.5mm\n•\tVelocidad de los ventiladores: 800-2000 RPM (máx.)\n•\tRuido: 30 dBA (máx.)\n•\tFlujo de aire: 50,7 CFM (máx.)\n•\tPresión de aire: 1,5 mmH2O (máx.)\n•\tVoltaje: 12V\n•\tRodamiento hidráulico: Sí\n•\tInterfaz: 3 ventiladores PWM 4Pin + PUMP 3pin",
           "price": 89.99,
           "picture": "componente_tempest_liquid_cooler"
         },{
@@ -34,11 +34,25 @@
       "symbol": "_2computer",
       "products": [
         {
-          "id": 11,
+          "id": 10,
           "product":"Asus E410MA-EB008TS Intel Celeron",
-          "details": "•\tProcesador Intel® Celeron® N4020 (2 Núcleos, 2 Subprocesos, Caché: 4MB, 1.10GHz hasta 2.80GHz, 64-bit)\n•\tMemoria RAM 4GB (4GB [EN PLACA]) DDR4 2400MHz\n•\tAlmacenamiento 64GB EMMC\n•\tUnidad óptica No\n•\tDisplay 14\" (35,56cm) LED Retroiluminado / 60Hz / NanoEdge (Borde Estrecho) / 200nits / FHD (1920x1080/16:9) / Antirreflejos / NTSC:45%\n•\tControlador gráfico Intel® UHD Graphics 600\n•\tConectividad\n•\tWi-Fi 5 (802.11ac) 1x1\n•\tBluetooth® 4.1\n•\tCámara de portátil VGA (640x480)\n•\tBatería 42Wh, 3 Celdas, Ion de Litio\n•\tConexiones\n\t•\t1 x USB 2.0\n\t•\t1 x USB 3.2 Gen1\n\t•\t1 x USB-C 3.2 Gen1\n\t•\t1 x Conector de Audio Combinado Auriculares/Micrófono 3,5mm\n\t•\t1 x HDMI 1.4\n\t•\t1 x Entrada de Corriente\n•\tSistema operativo Windows® 10 Home S (64Bits)\n•\tDimensiones (Ancho x Profundidad x Altura) 325 x 217 x 18~18,4 mm\n•\tPeso 1,3 Kg (con batería de 3 celdas)\n•\tColor Azul Eléctrico",
+          "details": "•\tProcesador Intel® Celeron® N4020 (2 Núcleos, 2 Subprocesos, Caché: 4MB, 1.10GHz hasta 2.80GHz, 64-bit)\n•\tMemoria RAM 4GB (4GB [EN PLACA]) DDR4 2400MHz\n•\tAlmacenamiento 64GB EMMC\n•\tUnidad óptica No\n•\tDisplay 14\" (35,56cm) LED Retroiluminado / 60Hz / NanoEdge (Borde Estrecho) / 200nits / FHD (1920x1080/16:9) / Antirreflejos / NTSC:45%\n•\tControlador gráfico Intel® UHD Graphics 600\n•\tConectividad\n•\tWi-Fi 5 (802.11ac) 1x1\n•\tBluetooth® 4.1\n•\tCámara de portátil VGA (640x480)\n•\tBatería 42Wh, 3 Celdas, Ion de Litio\n•\tConexiones\n•\t\t•\t1 x USB 2.0\n•\t\t•\t1 x USB 3.2 Gen1\n•\t\t•\t1 x USB-C 3.2 Gen1\n•\t\t•\t1 x Conector de Audio Combinado Auriculares/Micrófono 3,5mm\n•\t\t•\t1 x HDMI 1.4\n•\t\t•\t1 x Entrada de Corriente\n•\tSistema operativo Windows® 10 Home S (64Bits)\n•\tDimensiones (Ancho x Profundidad x Altura) 325 x 217 x 18~18,4 mm\n•\tPeso 1,3 Kg (con batería de 3 celdas)\n•\tColor Azul Eléctrico",
           "price": 269.00,
           "picture": "ordenador_asus_e410ma_eb008ts_intel_celeron"
+        },
+        {
+          "id": 11,
+          "product":"Acer Nitro 5",
+          "details": "•\tProcesador Intel® Core™ i7-11800H 2.30 GHz\n•\tMemoria 16 GB DDR4 3200MHz Memory\n•\tAlmacenamiento 512GB PCIe NVMe SSD\n•\tUnidad óptica NO\n•\tDisplay 15.6\" FHD IPS 144Hz slim bezel LCD FHD IPS (1920 x 1080) 3ms\n•\tControlador gráfico NVIDIA® GeForce® RTX3050Ti 4G-GDDR6(2C*256*16*4)\n•\tConectividad\n•\tLAN 10/100/1000\n•\tWiFi 6\n•\tBluetooth 5.1\n•\tCámara de portátil HD Camera with 2Mic.\n•\tMicrófono Sí\n•\tBatería 4 celdas, 57Wh Ion de litio\n•\tConexiones\n•\t1 x HDMI\n•\t1 x RJ45\n•\t1x USB 2.0\n•\t2 x USB 3.2 Gen 1 + 1 x USB 3.2 Gen 2 power-off charging + USB Type-C™ (Thunderbolt™ 4)\n•\t3.5mm combo audio jack\n•\tSistema operativo Sin sistema operativo\n•\tDimensiones (Ancho x Profundidad x Altura) 363.4 (W) x 255 (D) x 23.9 (H) mm\n•\tPeso 2.4 kg\n•\tColor Negro",
+          "price": 799.00,
+          "picture": "ordenador_acer_nitro_5"
+        },
+        {
+          "id": 12,
+          "product":"Lenovo IdeaPad 5",
+          "details": "•\tProcesador Intel Core i7-1165G7 (4C / 8T, 2.8 / 4.7GHz, 12MB)\n•\tMemoria RAM 8GB Soldered DDR4-3200\n•\tAlmacenamiento 512GB SSD M.2 2242 PCIe 3.0x4 NVMe\n•\tUnidad óptica No\n•\tDisplay 14 FHD (1920x1080) TN 250nits Anti-glare, 45% NTSC\n•\tControlador gráfico Intel Iris Xe Graphics\n•\tConectividad\n•\tWiFi 802.11ac, 2x2 + BT5.0\n•\tCámara de portátil 720p\n•\tMicrófono Sí\n•\tBatería Integrated 44.5Wh\n•\tConexiones\n•\t1x USB 3.2 Gen 1\n•\t1x USB 3.2 Gen 1 (Always On)\n•\t1x USB-C 3.2 Gen 1 (support data transfer, Power Delivery 3.0 and DisplayPort 1.2)\n•\t1x HDMI 1.4b1x card reader\n•\t1x headphone / microphone combo jack (3.5mm)\n•\tSistema operativo Windows 10 Home in S mode, Spanish\n•\tDimensiones (Ancho x Profundidad x Altura) 321.57 x 211.59 x 17.9-19.9 mm\n•\tPeso 1.39 kg\n•\tColor Azul",
+          "price": 599.00,
+          "picture": "ordenador_lenovo_ideapad_5"
         }
       ]
     },
@@ -47,7 +61,13 @@
       "content": "Móviles",
       "symbol": "_3mobile",
       "products": [
-
+        {
+          "id": 20,
+          "product":"Xiaomi Redmi 9A",
+          "details": "•\tProcesador\n•\tMediaTek Helio G25\n•\tCPU: Tecnología de proceso de 12 nm, hasta 2.0GHz, 8x A53, CPU de ocho núcleos\n•\tGPU: IMG PowerVR GE8320, hasta 650MHz\n•\tPantalla\nPantalla de 6.53 HD+ Dot Drop\n•\t720x1600 HD+\n•\tRelación de aspecto 20:9\n•\tRelación de contraste de 1500:1\n•\tNTSC 70% (typ)\n•\t400 nit (typ) de brillo\n•\tAdmite el ajuste de la temperatura del color | Modo estándar | Modo de lectura\n•\tAdmite el modo de luz solar\n•\tSIM\n•\tDiseño para tarjetas 2 + 1\nSoporta tarjetas SIM duales de diferentes compañías; ambas tarjetas pueden acceder a la conectividad 4G de forma simultánea*\n•\tSoporta doble tarjeta nano-SIM + tarjeta micro-SD, cualquiera de las tarjetas puede ser configurada como la tarjeta primaria\n•\tAdmite 4G/3G/2G\n•\tAdmite doble SIM VoLTE HD calling*\n•\tNota 1: La doble tarjeta SIM 4G requiere el soporte de los servicios del operador de telecomunicaciones local, y puede no estar disponible en todas las regiones.\n•\tNota 2: Sólo ciertas regiones y operadores de telecomunicaciones admiten VoLTE.\n•\tMemoria \n•\tRAM 2GB LPDDR4X\n•\tAlmacenamiento interno 32GB eMMC 5.1\n•\t* El almacenamiento disponible y la RAM son menores que la memoria total debido al almacenamiento del sistema operativo y el software preinstalado en el dispositivo.",
+          "price": 120.52,
+          "picture": "mobile_xiaomi_redmi_9a_32gb"
+        }
       ]
     },
     {
@@ -55,7 +75,13 @@
       "content": "Periféricos",
       "symbol": "_4keyboard",
       "products": [
-
+        {
+          "id": 30,
+          "product":"Tempest Doom-H Mech RGB",
+          "details": "•\tUltra silencioso: Pulsación Silenciosa para un bajo ruido de escritura. \n•\tN-key rollover: Pulsación simultánea de hasta 19 teclas con Anti-Ghosting.\n•\tLaser Keys: Teclas marcadas a láser, resistentes al desgaste.\n•\tTeclado numérico integrado\n•\tConexión: USB\n•\tDuración: 20 millones de pulsaciones\n•\tDiseño resistente a derrames y salpicaduras\n•\tVoltage: 4.5V~5.5V \n•\tPeso: 806g\n•\tTecnología: Hybrid Mechanical Red  \n•\tDimensiones:  439 x 145 x 38 mm \n•\tPeso: 1132 gramos\n•\tLongitud cable: 1.5 metros mallado con conexión en oro de alta calidad.\n•\tIluminación: 13 Modos 8 modos estáticos y 5 modos dinámicos.\n•\tCompatible con Windows, Mac y Linux\n•\tReposamuñecas: Si\n•\tIdioma: Español",
+          "price": 120.52,
+          "picture": "periferico_tempest_doom_h_mech"
+        }
       ]
     },
     {
