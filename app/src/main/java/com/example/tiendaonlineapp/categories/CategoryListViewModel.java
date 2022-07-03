@@ -8,4 +8,6 @@ public class CategoryListViewModel {
 
     // put the view state here
     public List<CategoryItem> categories;
+    public List<CategoryItem> likedCategories;
+    public boolean likeButtonChecked;
 }

@@ -10,7 +10,7 @@ public interface ProductListContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void displayData(ProductListViewModel viewModel);
+        void displayData(ProductListViewModel viewModel, boolean likedProducts);
 
         void navigateToNextActivity(Class c);
 
@@ -18,7 +18,7 @@ public interface ProductListContract {
 
         void userLogout();
 
-
+        boolean likeButtonIsChecked();
     }
 
     interface Presenter {
@@ -44,6 +44,8 @@ public interface ProductListContract {
     interface Model {
         void fetchProductListData(int categoryId,
                 RepositoryContract.GetProductListCallback callback);
+
+        void fetchUserProductListData(int categoryId, String username, String token, RepositoryContract.GetUserProductsCallback callback);
     }
 
 }

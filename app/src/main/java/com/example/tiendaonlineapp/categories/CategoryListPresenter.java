@@ -1,5 +1,7 @@
 package com.example.tiendaonlineapp.categories;
 
+import android.util.Log;
+
 import com.example.tiendaonlineapp.app.AppMediator;
 import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
@@ -25,17 +27,39 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
         state = mediator.getCategoryListState();
     }
 
+    private void fetchUserProductListData(){
+        model.fetchUserProductListData(mediator.user.username,
+                mediator.user.token, new RepositoryContract.GetCategoryListCallback(){
+                    @Override
+                    public void setCategoryList(List<CategoryItem> categories) {
+                        state.likedCategories = categories;
+                        view.get().displayData(state,true);
+                    }
+                });
+
+    }
+
+    private void displayData(){
+        if(mediator.user!=null) {
+            view.get().userLogged(mediator.user.username);
+            if (state.likeButtonChecked) {
+                fetchUserProductListData();
+            } else {
+                view.get().displayData(state, false);
+            }
+        }else{
+            view.get().userLogout();
+            view.get().displayData(state, false);
+        }
+    }
+
     @Override
     public void onResume() {
         CategoryListState savedState = mediator.getCategoryListState();
         if(savedState!=null){
             state = savedState;
         }
-        if(mediator.user!=null){
-            view.get().userLogged(mediator.user.username);
-        }else{
-            view.get().userLogout();
-        }
+        displayData();
     }
 
     @Override
@@ -46,9 +70,10 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
     @Override
     public void likeButtonPressed() {
-
+        state.likeButtonChecked = view.get().likeButtonIsChecked();
+        Log.e(TAG,"likeButtonChecked:"+ state.likeButtonChecked);
+        displayData();
     }
-
 
     @Override
     public void injectView(WeakReference<CategoryListContract.View> view) {
@@ -65,11 +90,10 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
         // Log.e(TAG, "fetchCategoryListData()");
         // call the model
         model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
-
             @Override
             public void setCategoryList(List<CategoryItem> categories) {
                 state.categories = categories;
-                view.get().displayData(state);
+                view.get().displayData(state, false);
             }
         });
     }
@@ -78,6 +102,7 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     public void selectCategoryListData(CategoryItem item) {
         ProductListState pdState = new ProductListState();
         pdState.categoryId = item.id;
+        pdState.likeButtonChecked = state.likeButtonChecked;
         mediator.setProductListState(pdState);
         view.get().navigateToNextActivity(ProductListActivity.class);
     }

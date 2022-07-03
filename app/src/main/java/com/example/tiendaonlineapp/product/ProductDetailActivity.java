@@ -4,15 +4,21 @@ import static java.lang.String.valueOf;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.LeadingMarginSpan;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.tiendaonlineapp.R;
@@ -112,7 +118,12 @@ public class ProductDetailActivity
         ((ImageView) findViewById(R.id.productImage)).setImageResource(getResourceId(viewModel.currentProduct.picture,
                 "drawable",
                 getPackageName()));;
+        ToggleButton like = findViewById(R.id.likeButton);
+        like.setOnClickListener(view -> toggleButtonPressed(like.isChecked()));
+    }
 
+    private void toggleButtonPressed(boolean isChecked) {
+        presenter.toggleButtonPressed(isChecked);
     }
 
     private int getResourceId(String pVariableName, String pResourcename, String pPackageName)
@@ -132,6 +143,75 @@ public class ProductDetailActivity
         return result;
     }
 
+    @Override
+    public void showToastAnimation(int message, boolean isGood){
+        runOnUiThread (new Thread(new Runnable() {
+            public void run() {
+                TextView toast = findViewById(R.id.toast);
+                if (isGood) {
+                    toast.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.drawable.border_good));
+                } else {
+                    toast.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.drawable.border_wrong));
+                }
+                toast.setText(getString(message));
+                Animation out = new AlphaAnimation(1.0f,0.0f);
+                out.setDuration(1000);
+                Animation in = new AlphaAnimation(0.0f,1.0f);
+                in.setDuration(1000);
+                out.setAnimationListener(new Animation.AnimationListener() {
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Log.d(TAG,"Out Animation Ended");
+                        toast.setVisibility(View.GONE);
+
+                    }
+                });
+                in.setAnimationListener(new Animation.AnimationListener() {
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Log.d(TAG,"In Animation Ended");
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                toast.startAnimation(out);
+                            }
+                        }, 2000);
+
+                    }
+                });
+                toast.setVisibility(View.VISIBLE);
+                toast.startAnimation(in);
+            }
+        }));
+    }
+
+    @Override
+    public void changeToggleButtonState() {
+        runOnUiThread (new Thread(new Runnable() {
+            public void run() {
+        ToggleButton like = findViewById(R.id.likeButton);
+        like.setChecked(!like.isChecked());
+            }
+        }));
+    }
 
     @Override
     protected void onResume() {

@@ -83,13 +83,11 @@ RegisterPresenter implements RegisterContract.Presenter {
 
             @Override
             public void onUsernameInserted() {
-
+                LoginState loginState = new LoginState();
+                loginState.toast = R.string.registerConfirmed;
+                mediator.setLoginState(loginState);
+                view.get().finishActivity();
             }
         });
-        LoginState loginState = new LoginState();
-        loginState.toast = R.string.registerConfirmed;
-        mediator.setLoginState(loginState);
-        view.get().finishActivity();
     }
-
 }

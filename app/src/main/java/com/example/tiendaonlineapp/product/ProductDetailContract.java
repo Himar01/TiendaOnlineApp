@@ -17,6 +17,10 @@ public interface ProductDetailContract {
         void userLogout();
 
         void navigateToNextActivity(Class<LoginActivity> c);
+
+        void showToastAnimation(int message, boolean isGood);
+
+        void changeToggleButtonState();
     }
 
     interface Presenter {
@@ -31,10 +35,18 @@ public interface ProductDetailContract {
         void logoutButtonPressed();
 
         void loginButtonPressed();
+
+        void toggleButtonPressed(boolean isChecked);
     }
 
     interface Model {
         void fetchProductListData(int productId, RepositoryContract.GetProductCallback callback);
+
+        void insertFavItem(int productId, String username, String token, RepositoryContract.InsertFavoriteItemCallback callback);
+
+        void deleteFavItem(int productId, String username, String token, RepositoryContract .DeleteFavoriteItemCallback callback);
+
+        void checkFavItemExists(int productId, String username, String token, RepositoryContract.CheckFavoriteItemCallback callback);
     }
 
 }

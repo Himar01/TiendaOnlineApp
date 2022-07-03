@@ -10,12 +10,14 @@ public interface CategoryListContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void displayData(CategoryListViewModel viewModel);
+        void displayData(CategoryListViewModel viewModel, boolean likedButton);
 
         void navigateToNextActivity(Class c);
 
         void userLogged(String username);
         void userLogout();
+
+        boolean likeButtonIsChecked();
     }
 
     interface Presenter {
@@ -36,6 +38,8 @@ public interface CategoryListContract {
     interface Model {
         void fetchCategoryListData(
                 RepositoryContract.GetCategoryListCallback callback);
+
+        void fetchUserProductListData(String username, String token, RepositoryContract.GetCategoryListCallback callback);
     }
 
 }

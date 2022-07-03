@@ -35,4 +35,9 @@ Tipo de enfriamiento: Disipador térmico</string>
     <string name="greeting">¡Hola, %1$s!</string>
     <string name="loginUnable">No se ha podido iniciar sesión</string>
     <string name="spacesNotAllowed">Los nombres con espacio intercalado no están permitidos</string>
+    <string name="mustLoginFirst">Debe iniciar sesión primero</string>
+    <string name="FavItemInserted">Se ha añadido el producto a favoritos</string>
+    <string name="FavItemNotInserted">No se ha añadido el producto a favoritos</string>
+    <string name="FavItemDeleted">Se ha eliminado el producto de favoritos</string>
+    <string name="FavItemNotDeleted">No se ha eliminado el producto de favoritos</string>
 </resources>

@@ -7,6 +7,7 @@ import java.util.List;
 public class ProductListViewModel {
 
     // put the view state here
-
+    public List<ProductItem> likedProducts;
     public List<ProductItem> currentProducts;
+    public boolean likeButtonChecked;
 }

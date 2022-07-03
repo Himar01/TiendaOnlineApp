@@ -128,7 +128,7 @@ public class ProductListActivity
     }
 
     @Override
-    public void displayData(ProductListViewModel viewModel) {
+    public void displayData(ProductListViewModel viewModel, boolean likedProducts) {
         Log.e(TAG, "displayCategoryListData()");
 
         runOnUiThread(new Runnable() {
@@ -137,18 +137,23 @@ public class ProductListActivity
             public void run() {
 
                 // deal with the data
-                listAdapter.setItems(viewModel.currentProducts);
+                listAdapter.setItems(likedProducts?viewModel.likedProducts:
+                        viewModel.currentProducts);
+                ((ToggleButton) findViewById(R.id.like)).setChecked(viewModel.likeButtonChecked);
             }
 
         });
     }
 
     @Override
+    public boolean likeButtonIsChecked(){
+        return ((ToggleButton) findViewById(R.id.like)).isChecked();
+    }
+    @Override
     public void navigateToNextActivity(Class c) {
         Intent intent = new Intent(this, c);
         startActivity(intent);
     }
-
 
     @Override
     public void injectPresenter(ProductListContract.Presenter presenter) {

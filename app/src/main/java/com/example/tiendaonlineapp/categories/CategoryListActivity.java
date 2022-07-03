@@ -77,8 +77,7 @@ public class CategoryListActivity
     }
 
 
-    @Override
-    public void displayData(CategoryListViewModel viewModel) {
+    public void displayData(CategoryListViewModel viewModel, boolean likedProducts) {
         Log.e(TAG, "displayCategoryListData()");
 
         runOnUiThread(new Runnable() {
@@ -87,7 +86,9 @@ public class CategoryListActivity
             public void run() {
 
                 // deal with the data
-                listAdapter.setItems(viewModel.categories);
+                listAdapter.setItems(likedProducts?viewModel.likedCategories:
+                        viewModel.categories);
+                ((ToggleButton) findViewById(R.id.like)).setChecked(viewModel.likeButtonChecked);
             }
 
         });
@@ -136,6 +137,11 @@ public class CategoryListActivity
         logout=findViewById(R.id.logout);
         logout.setVisibility(View.GONE);
 
+    }
+
+    @Override
+    public boolean likeButtonIsChecked() {
+        return ((ToggleButton) findViewById(R.id.like)).isChecked();
     }
 
     @Override

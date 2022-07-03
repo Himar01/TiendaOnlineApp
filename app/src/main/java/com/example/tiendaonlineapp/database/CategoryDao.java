@@ -24,6 +24,9 @@ public interface CategoryDao {
   @Delete
   void deleteCategory(CategoryItem category);
 
+  @Query("SELECT DISTINCT categories.id,content,symbol FROM favorites,users,categories,products WHERE favorites.username=:username AND users.token=:token AND productId=products.id AND category_id=categories.id")
+  List<CategoryItem> loadCategories(String username, String token);
+
   @Query("SELECT * FROM categories")
   List<CategoryItem> loadCategories();
 

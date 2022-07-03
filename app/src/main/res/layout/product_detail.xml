@@ -89,7 +89,23 @@
         android:layout_height="1dp"
         android:alpha="0.6"
         android:background="@android:color/darker_gray"/>
-
+    <TextView
+        android:id="@+id/toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/border_wrong"
+        android:gravity="center"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text="@string/not_same_password"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:elevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator" />
     <ScrollView
         android:id="@+id/scrollDetails"
         android:layout_width="match_parent"

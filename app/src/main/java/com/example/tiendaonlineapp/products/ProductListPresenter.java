@@ -1,8 +1,7 @@
 package com.example.tiendaonlineapp.products;
 
-import android.util.Log;
-
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.categories.CategoryListState;
 import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
 import com.example.tiendaonlineapp.login.LoginActivity;
@@ -27,24 +26,47 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         state = mediator.getProductListState();
     }
 
+    private void fetchUserProductListData(){
+        model.fetchUserProductListData(state.categoryId, mediator.user.username,
+                mediator.user.token, new RepositoryContract.GetUserProductsCallback(){
+                    @Override
+                    public void setUserProducts(List<ProductItem> products) {
+                        state.likedProducts = products;
+                        view.get().displayData(state,true);
+                    }
+                });
 
+    }
+
+    private void displayData(){
+        if(mediator.user!=null) {
+            view.get().userLogged(mediator.user.username);
+            if (state.likeButtonChecked) {
+                fetchUserProductListData();
+            } else {
+                view.get().displayData(state, false);
+            }
+        }else{
+            view.get().userLogout();
+            view.get().displayData(state, false);
+        }
+    }
     @Override
     public void onBackPressed() {
-        Log.e(TAG, "onBackPressed()");
+        CategoryListState state = new CategoryListState();
+        state.likeButtonChecked = this.state.likeButtonChecked;
+        mediator.setCategoryListState(state);
     }
+
 
     @Override
     public void fetchCategoryListData() {
-        // Log.e(TAG, "fetchCategoryListData()");
-
-        // call the model
-        model.fetchProductListData(state.categoryId,new RepositoryContract.GetProductListCallback() {
-            @Override
-            public void setProductList(List<ProductItem> products) {
-                state.currentProducts = products;
-                view.get().displayData(state);
-            }
-        });
+            model.fetchProductListData(state.categoryId, new RepositoryContract.GetProductListCallback() {
+                @Override
+                public void setProductList(List<ProductItem> products) {
+                    state.currentProducts = products;
+                }
+            });
     }
 
     @Override
@@ -62,16 +84,13 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         if(savedState!=null){
             state = savedState;
         }
-        if(mediator.user!=null){
-            view.get().userLogged(mediator.user.username);
-        }else{
-            view.get().userLogout();
-        }
+        displayData();
     }
 
     @Override
     public void likeButtonPressed() {
-
+        state.likeButtonChecked = view.get().likeButtonIsChecked();
+        displayData();
     }
 
     @Override

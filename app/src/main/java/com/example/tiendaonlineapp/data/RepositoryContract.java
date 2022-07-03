@@ -5,6 +5,9 @@ import java.util.List;
 
 public interface RepositoryContract {
 
+
+    //INTERFACES-----------------------------
+
     interface FetchCatalogDataCallback {
         void onCatalogDataFetched(boolean error);
     }
@@ -49,6 +52,19 @@ public interface RepositoryContract {
     interface LoginUsername{
         void onUsernameChecked(String token);
     }
+    interface InsertFavoriteItemCallback{
+        void FavoriteItemInserted();
+    }
+    interface DeleteFavoriteItemCallback{
+        void FavoriteItemDeleted();
+    }
+    interface CheckFavoriteItemCallback{
+        void FavoriteItemChecked(boolean exists);
+    }
+    interface GetUserProductsCallback{
+        void setUserProducts(List<ProductItem> products);
+    }
+    //METHODS-----------------------------
 
     void loadCatalog(
             boolean clearFirst, OnlineShopRepository.FetchCatalogDataCallback callback);
@@ -78,7 +94,17 @@ public interface RepositoryContract {
     void checkUsernameValid(String username,
                             RepositoryContract.CheckUsernameCallback callback);
     void insertUsername(User user,
-                        RepositoryContract.InsertUsernameCallback callback);
-    void loginUser(User user, RepositoryContract.LoginUsername callback);
-
+                            RepositoryContract.InsertUsernameCallback callback);
+    void loginUser(User user,
+                            RepositoryContract.LoginUsername callback);
+    void insertFavoriteItem(FavoriteItem item, String token,
+                            RepositoryContract.InsertFavoriteItemCallback callback);
+    void deleteFavoriteItem(FavoriteItem item, String token,
+                            RepositoryContract.DeleteFavoriteItemCallback callback);
+    void checkFavoriteItem(FavoriteItem item, String token,
+                            RepositoryContract.CheckFavoriteItemCallback callback);
+    void getUserProducts(String username, int categoryId, String token,
+                            RepositoryContract.GetUserProductsCallback callback);
+    void getCategoryList(String username, String token,
+                            RepositoryContract.GetCategoryListCallback callback);
 }

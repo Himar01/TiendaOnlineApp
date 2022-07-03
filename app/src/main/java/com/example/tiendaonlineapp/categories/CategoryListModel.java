@@ -30,7 +30,6 @@ public class CategoryListModel implements CategoryListContract.Model {
                 if (product == null) {
                     repository.loadCatalog(
                             true, new RepositoryContract.FetchCatalogDataCallback() {
-
                                 @Override
                                 public void onCatalogDataFetched(boolean error) {
                                     if (!error) {
@@ -46,6 +45,11 @@ public class CategoryListModel implements CategoryListContract.Model {
         });
 
 
+    }
+
+    @Override
+    public void fetchUserProductListData(String username, String token, RepositoryContract.GetCategoryListCallback callback) {
+        repository.getCategoryList(username,token,callback);
     }
 
 }

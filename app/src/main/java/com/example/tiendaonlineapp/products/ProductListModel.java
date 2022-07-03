@@ -27,4 +27,9 @@ public class ProductListModel implements ProductListContract.Model {
 
         }
 
+    @Override
+    public void fetchUserProductListData(int categoryId, String username, String token, RepositoryContract.GetUserProductsCallback callback) {
+        repository.getUserProducts(username,categoryId,token,callback);
+    }
+
 }

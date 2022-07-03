@@ -264,10 +264,85 @@ public class OnlineShopRepository implements RepositoryContract{
         });
     }
 
+    @Override
+    public void insertFavoriteItem(FavoriteItem item, String token, InsertFavoriteItemCallback callback) {
+        AsyncTask.execute(new Runnable(){
+            @Override
+            public void run(){
+                if(getUserDao().checkTokenValid(item.username, token)!=null) {
+                    if (callback != null) {
+                        getFavoriteDao().insertFavoriteItem(item);
+                        callback.FavoriteItemInserted();
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public void deleteFavoriteItem(FavoriteItem item, String token, DeleteFavoriteItemCallback callback) {
+        AsyncTask.execute(new Runnable(){
+            @Override
+            public void run(){
+                if(getUserDao().checkTokenValid(item.username, token)!=null) {
+                    if (callback != null) {
+                        getFavoriteDao().deleteFavoriteItem(item);
+                        callback.FavoriteItemDeleted();
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public void checkFavoriteItem(FavoriteItem item, String token, CheckFavoriteItemCallback callback) {
+        AsyncTask.execute(new Runnable(){
+            @Override
+            public void run(){
+                if(callback!=null){
+                    if(getUserDao().checkTokenValid(item.username, token)!=null){
+                        callback.FavoriteItemChecked(getFavoriteDao().checkFavoriteItem(item.username,item.productId)!=null);
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getUserProducts(String username, int categoryId, String token, GetUserProductsCallback callback) {
+        AsyncTask.execute(new Runnable(){
+            @Override
+            public void run(){
+                if(callback!=null){
+
+                    callback.setUserProducts(
+                            getFavoriteDao().loadFavoriteItems(username,categoryId,token));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getCategoryList(String username, String token, GetCategoryListCallback callback) {
+        AsyncTask.execute(new Runnable(){
+            @Override
+            public void run(){
+                if(callback!=null){
+
+                    callback.setCategoryList(
+                            getCategoryDao().loadCategories(username,token));
+                }
+            }
+        });
+    }
+
+
     private String generateNewToken() {
         byte[] randomBytes = new byte[24];
         secureRandom.nextBytes(randomBytes);
         return base64Encoder.encodeToString(randomBytes);
 
     }
+
+
 }

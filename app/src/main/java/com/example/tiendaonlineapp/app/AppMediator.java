@@ -34,9 +34,13 @@ public class AppMediator {
         INSTANCE = null;
     }
 
+    public void setCategoryListState(CategoryListState state) {
+        categoryListState.likeButtonChecked = state.likeButtonChecked;
+    }
     public CategoryListState getCategoryListState() {
         return categoryListState;
     }
+
 
     public void setProductListState(ProductListState state) {
         productListState = state;
