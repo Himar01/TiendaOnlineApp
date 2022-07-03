@@ -23,8 +23,7 @@ public interface CategoryListContract {
     interface Presenter {
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
-
-        void fetchCategoryListData();
+        void onCreate();
         void selectCategoryListData(CategoryItem item);
         void loginButtonPressed();
 
@@ -40,6 +39,8 @@ public interface CategoryListContract {
                 RepositoryContract.GetCategoryListCallback callback);
 
         void fetchUserProductListData(String username, String token, RepositoryContract.GetCategoryListCallback callback);
+
+        void clearAllTables();
     }
 
 }

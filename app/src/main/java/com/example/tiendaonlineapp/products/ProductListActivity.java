@@ -50,9 +50,6 @@ public class ProductListActivity
         },this);
         RecyclerView recyclerView = findViewById(R.id.product_list);
         recyclerView.setAdapter(listAdapter);
-
-
-        presenter.fetchCategoryListData();
     }
 
     private void setUpButtons() {

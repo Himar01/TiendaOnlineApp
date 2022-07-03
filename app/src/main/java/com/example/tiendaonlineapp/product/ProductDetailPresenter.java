@@ -2,6 +2,7 @@ package com.example.tiendaonlineapp.product;
 
 import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.app.UserLog;
 import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
 import com.example.tiendaonlineapp.login.LoginActivity;
@@ -17,8 +18,9 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
     private ProductDetailState state;
     private ProductDetailContract.Model model;
     private AppMediator mediator;
-
-    public ProductDetailPresenter(AppMediator mediator) {
+    private UserLog userLog;
+    public ProductDetailPresenter(AppMediator mediator,UserLog userLog) {
+        this.userLog = userLog;
         this.mediator = mediator;
         state = mediator.getProductDetailState();
 
@@ -32,8 +34,8 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
                 view.get().displayData(state);
             }
         });
-        if(mediator.user!=null){
-            model.checkFavItemExists(state.productId, mediator.user.username, mediator.user.token, new RepositoryContract.CheckFavoriteItemCallback() {
+        if(userLog.user!=null){
+            model.checkFavItemExists(state.productId, userLog.user.username, userLog.user.token, new RepositoryContract.CheckFavoriteItemCallback() {
                 @Override
                 public void FavoriteItemChecked(boolean exists) {
                     if(exists) view.get().changeToggleButtonState();
@@ -49,8 +51,8 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         if(savedState!=null){
             state = savedState;
         }
-        if(mediator.user!=null){
-            view.get().userLogged(mediator.user.username);
+        if(userLog.user!=null){
+            view.get().userLogged(userLog.user.username);
         }else{
             view.get().userLogout();
         }
@@ -58,7 +60,7 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     @Override
     public void logoutButtonPressed() {
-        mediator.user = null;
+        userLog.user = null;
         view.get().userLogout();
     }
 
@@ -69,15 +71,15 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     @Override
     public void toggleButtonPressed(boolean isChecked) {
-        if(mediator.user==null){
+        if(userLog.user==null){
             view.get().showToastAnimation(R.string.mustLoginFirst,false);
             view.get().changeToggleButtonState();
         }else{
             if (isChecked) {
-                model.insertFavItem(state.productId, mediator.user.username, mediator.user.token, new RepositoryContract.InsertFavoriteItemCallback(){
+                model.insertFavItem(state.productId, userLog.user.username, userLog.user.token, new RepositoryContract.InsertFavoriteItemCallback(){
                     @Override
                     public void FavoriteItemInserted() {
-                        model.checkFavItemExists(state.productId, mediator.user.username, mediator.user.token, new RepositoryContract.CheckFavoriteItemCallback() {
+                        model.checkFavItemExists(state.productId, userLog.user.username, userLog.user.token, new RepositoryContract.CheckFavoriteItemCallback() {
                             @Override
                             public void FavoriteItemChecked(boolean exists) {
                                 if(exists){
@@ -90,10 +92,10 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
                     }
                 });
             } else {
-                model.deleteFavItem(state.productId, mediator.user.username, mediator.user.token, new RepositoryContract.DeleteFavoriteItemCallback() {
+                model.deleteFavItem(state.productId, userLog.user.username, userLog.user.token, new RepositoryContract.DeleteFavoriteItemCallback() {
                     @Override
                     public void FavoriteItemDeleted() {
-                        model.checkFavItemExists(state.productId, mediator.user.username, mediator.user.token, new RepositoryContract.CheckFavoriteItemCallback() {
+                        model.checkFavItemExists(state.productId, userLog.user.username, userLog.user.token, new RepositoryContract.CheckFavoriteItemCallback() {
                             @Override
                             public void FavoriteItemChecked(boolean exists) {
                                 if(exists) {

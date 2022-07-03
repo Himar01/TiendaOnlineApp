@@ -107,4 +107,5 @@ public interface RepositoryContract {
                             RepositoryContract.GetUserProductsCallback callback);
     void getCategoryList(String username, String token,
                             RepositoryContract.GetCategoryListCallback callback);
+    void clearAllTables();
 }

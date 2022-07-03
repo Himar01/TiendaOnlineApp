@@ -28,8 +28,6 @@ public interface ProductListContract {
 
         void onBackPressed();
 
-        void fetchCategoryListData();
-
         void selectCategoryListData(ProductItem item);
 
         void onResume();

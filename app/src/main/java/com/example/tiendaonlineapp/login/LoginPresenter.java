@@ -2,6 +2,7 @@ package com.example.tiendaonlineapp.login;
 
 import com.example.tiendaonlineapp.R;
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.app.UserLog;
 import com.example.tiendaonlineapp.data.RepositoryContract;
 import com.example.tiendaonlineapp.data.User;
 import com.example.tiendaonlineapp.register.RegisterActivity;
@@ -18,9 +19,11 @@ LoginPresenter implements LoginContract.Presenter {
     private LoginState state;
     private LoginContract.Model model;
     private AppMediator mediator;
+    private UserLog userLog;
 
-    public LoginPresenter(AppMediator mediator) {
+    public LoginPresenter(AppMediator mediator,UserLog userLog) {
         this.mediator = mediator;
+        this.userLog = userLog;
         state = mediator.getLoginState();
     }
     @Override
@@ -61,7 +64,7 @@ LoginPresenter implements LoginContract.Presenter {
                  String lowerUsername = username.toLowerCase();
                  user.username=lowerUsername;
                  user.token=token;
-                 mediator.user=user;
+                 userLog.user=user;
                  view.get().finishActivity();
              }else{
                  view.get().showToastAnimation(R.string.loginUnable,false);

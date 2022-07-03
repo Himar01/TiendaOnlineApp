@@ -3,6 +3,7 @@ package com.example.tiendaonlineapp.categories;
 import android.util.Log;
 
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.app.UserLog;
 import com.example.tiendaonlineapp.data.CategoryItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
 import com.example.tiendaonlineapp.login.LoginActivity;
@@ -21,15 +22,16 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     private CategoryListState state;
     private CategoryListContract.Model model;
     private AppMediator mediator;
-
-    public CategoryListPresenter(AppMediator mediator) {
+    private UserLog userLog;
+    public CategoryListPresenter(AppMediator mediator,UserLog userLog) {
+        this.userLog = userLog;
         this.mediator = mediator;
         state = mediator.getCategoryListState();
     }
 
     private void fetchUserProductListData(){
-        model.fetchUserProductListData(mediator.user.username,
-                mediator.user.token, new RepositoryContract.GetCategoryListCallback(){
+        model.fetchUserProductListData(userLog.user.username,
+                userLog.user.token, new RepositoryContract.GetCategoryListCallback(){
                     @Override
                     public void setCategoryList(List<CategoryItem> categories) {
                         state.likedCategories = categories;
@@ -40,17 +42,29 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     }
 
     private void displayData(){
-        if(mediator.user!=null) {
-            view.get().userLogged(mediator.user.username);
+        if(userLog.user!=null) {
+            view.get().userLogged(userLog.user.username);
             if (state.likeButtonChecked) {
                 fetchUserProductListData();
             } else {
-                view.get().displayData(state, false);
+                fetchCategoryListData();
             }
         }else{
             view.get().userLogout();
-            view.get().displayData(state, false);
+            fetchCategoryListData();
         }
+    }
+
+    private void fetchCategoryListData() {
+        // Log.e(TAG, "fetchCategoryListData()");
+        // call the model
+        model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
+            @Override
+            public void setCategoryList(List<CategoryItem> categories) {
+                state.categories = categories;
+                view.get().displayData(state, false);
+            }
+        });
     }
 
     @Override
@@ -64,7 +78,7 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
     @Override
     public void logoutButtonPressed() {
-        mediator.user=null;
+        userLog.user=null;
         view.get().userLogout();
     }
 
@@ -86,16 +100,8 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     }
 
     @Override
-    public void fetchCategoryListData() {
-        // Log.e(TAG, "fetchCategoryListData()");
-        // call the model
-        model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
-            @Override
-            public void setCategoryList(List<CategoryItem> categories) {
-                state.categories = categories;
-                view.get().displayData(state, false);
-            }
-        });
+    public void onCreate() {
+        model.clearAllTables();
     }
 
     @Override

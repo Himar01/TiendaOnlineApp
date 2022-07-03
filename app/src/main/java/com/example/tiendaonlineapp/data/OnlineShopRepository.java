@@ -153,7 +153,16 @@ public class OnlineShopRepository implements RepositoryContract{
     public void getProductList(CategoryItem category, GetProductListCallback callback) {
 
     }
+    @Override
+    public void clearAllTables(){
+        AsyncTask.execute(new Runnable() {
 
+            @Override
+            public void run() {
+                database.clearAllTables();
+            }
+        });
+    }
     @Override
     public void getProductList(int categoryId, GetProductListCallback callback) {
         AsyncTask.execute(new Runnable() {

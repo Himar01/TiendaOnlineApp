@@ -1,6 +1,7 @@
 package com.example.tiendaonlineapp.products;
 
 import com.example.tiendaonlineapp.app.AppMediator;
+import com.example.tiendaonlineapp.app.UserLog;
 import com.example.tiendaonlineapp.categories.CategoryListState;
 import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
@@ -20,15 +21,16 @@ public class ProductListPresenter implements ProductListContract.Presenter {
     private ProductListState state;
     private ProductListContract.Model model;
     private AppMediator mediator;
-
-    public ProductListPresenter(AppMediator mediator) {
+    private UserLog userLog;
+    public ProductListPresenter(AppMediator mediator,UserLog userLog) {
+        this.userLog = userLog;
         this.mediator = mediator;
         state = mediator.getProductListState();
     }
 
     private void fetchUserProductListData(){
-        model.fetchUserProductListData(state.categoryId, mediator.user.username,
-                mediator.user.token, new RepositoryContract.GetUserProductsCallback(){
+        model.fetchUserProductListData(state.categoryId, userLog.user.username,
+                userLog.user.token, new RepositoryContract.GetUserProductsCallback(){
                     @Override
                     public void setUserProducts(List<ProductItem> products) {
                         state.likedProducts = products;
@@ -39,34 +41,34 @@ public class ProductListPresenter implements ProductListContract.Presenter {
     }
 
     private void displayData(){
-        if(mediator.user!=null) {
-            view.get().userLogged(mediator.user.username);
+        if(userLog.user!=null) {
+            view.get().userLogged(userLog.user.username);
             if (state.likeButtonChecked) {
                 fetchUserProductListData();
             } else {
-                view.get().displayData(state, false);
+                fetchProductListData();
             }
         }else{
             view.get().userLogout();
-            view.get().displayData(state, false);
+            fetchProductListData();
         }
     }
+
+    private void fetchProductListData() {
+        model.fetchProductListData(state.categoryId, new RepositoryContract.GetProductListCallback() {
+            @Override
+            public void setProductList(List<ProductItem> products) {
+                state.currentProducts = products;
+                view.get().displayData(state, false);
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         CategoryListState state = new CategoryListState();
         state.likeButtonChecked = this.state.likeButtonChecked;
         mediator.setCategoryListState(state);
-    }
-
-
-    @Override
-    public void fetchCategoryListData() {
-            model.fetchProductListData(state.categoryId, new RepositoryContract.GetProductListCallback() {
-                @Override
-                public void setProductList(List<ProductItem> products) {
-                    state.currentProducts = products;
-                }
-            });
     }
 
     @Override
@@ -95,7 +97,7 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
     @Override
     public void logoutButtonPressed() {
-        mediator.user=null;
+        userLog.user=null;
         view.get().userLogout();
     }
 

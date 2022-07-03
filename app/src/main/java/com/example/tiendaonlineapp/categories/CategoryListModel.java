@@ -1,9 +1,6 @@
 package com.example.tiendaonlineapp.categories;
 
 
-import android.util.Log;
-
-import com.example.tiendaonlineapp.data.ProductItem;
 import com.example.tiendaonlineapp.data.RepositoryContract;
 
 public class CategoryListModel implements CategoryListContract.Model {
@@ -22,7 +19,7 @@ public class CategoryListModel implements CategoryListContract.Model {
     public void fetchCategoryListData(
             final RepositoryContract.GetCategoryListCallback callback) {
 
-        Log.e(TAG, "fetchCategoryListData()");
+/*        Log.e(TAG, "fetchCategoryListData()");
         repository.getProduct(0,new RepositoryContract.GetProductCallback(){
 
             @Override
@@ -42,14 +39,27 @@ public class CategoryListModel implements CategoryListContract.Model {
                     repository.getCategoryList(callback);
                 }
             }
-        });
+        });*/
 
-
+        repository.loadCatalog(
+                false, new RepositoryContract.FetchCatalogDataCallback() {
+                    @Override
+                    public void onCatalogDataFetched(boolean error) {
+                        if (!error) {
+                            repository.getCategoryList(callback);
+                        }
+                    }
+                });
     }
 
     @Override
     public void fetchUserProductListData(String username, String token, RepositoryContract.GetCategoryListCallback callback) {
         repository.getCategoryList(username,token,callback);
+    }
+
+    @Override
+    public void clearAllTables() {
+        repository.clearAllTables();
     }
 
 }

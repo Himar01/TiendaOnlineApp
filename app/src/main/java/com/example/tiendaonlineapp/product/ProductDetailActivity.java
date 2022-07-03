@@ -28,7 +28,6 @@ public class ProductDetailActivity
         extends AppCompatActivity implements ProductDetailContract.View {
 
 
-    //public static String TAG = ProductDetailActivity.class.getSimpleName();
     public static String TAG = "TiendaOnlineApp.ProductDetailActivity";
 
     private ProductDetailContract.Presenter presenter;
@@ -111,6 +110,9 @@ public class ProductDetailActivity
         ((TextView) findViewById(R.id.productName)).setText(viewModel.currentProduct.product);
         String priceTotal = valueOf(viewModel.currentProduct.price);
         String[] price = priceTotal.split("\\.");
+        if(price[1].equals("0")){
+            price[1]="00";
+        }
         ((TextView) findViewById(R.id.productPrice)).setText(price[0]+","+price[1]+"€");
         String details = viewModel.currentProduct.details;
         SpannableString indentedDetails = createIndentedText(details,0,100);

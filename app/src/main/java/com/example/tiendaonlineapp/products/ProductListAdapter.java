@@ -48,7 +48,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+            return itemList.size();
     }
 
     @Override
@@ -66,6 +66,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         //Adjusting price to clean visibility
         String priceTotal = valueOf(itemList.get(position).price);
         String[] price = priceTotal.split("\\.");
+        if(price[1].equals("0")){
+            price[1]="00";
+        }
         holder.priceView.setText(price[0]+","+price[1]+"€");
         holder.productView.setImageResource(getResourceId(itemList.get(position).picture,
                 "drawable",

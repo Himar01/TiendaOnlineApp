@@ -166,6 +166,7 @@ public class RegisterActivity
     @Override
     public void erasePasswords() {
         password.setText("");
+        passwordRepetition.setText("");
     }
 
     private void loginButtonPressed() {
